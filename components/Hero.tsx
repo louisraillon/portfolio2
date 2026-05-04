@@ -1,24 +1,40 @@
-// components/Hero.tsx
 import ScrollReveal from './ScrollReveal'
 
 export default function Hero() {
   return (
     <section
-      className="grid items-end gap-8 px-6 pb-20 pt-36 md:grid-cols-[3fr_2fr] md:px-16 md:pb-32 md:pt-44"
+      className="relative flex flex-col justify-between px-6 pb-12 pt-36 md:px-16 md:pb-16"
       style={{ minHeight: '100dvh' }}
     >
-      {/* Left: headline + CTA */}
-      <div>
-        <ScrollReveal delay={0}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint-ghost">
-            Fullstack Developer
-          </p>
-        </ScrollReveal>
+      {/* Ambient warm glow behind headline */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          bottom: '20%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '700px',
+          height: '400px',
+          background: 'radial-gradient(ellipse at center, rgba(196,160,90,0.07) 0%, transparent 68%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
 
+      {/* Top eyebrow */}
+      <ScrollReveal>
+        <p className="relative z-10 font-mono text-[10px] uppercase tracking-[0.25em] text-faint-ghost">
+          Fullstack Developer — Paris
+        </p>
+      </ScrollReveal>
+
+      {/* Bottom block: headline + divider row */}
+      <div className="relative z-10">
         <ScrollReveal delay={80}>
           <h1
-            className="mt-5 font-fraunces italic leading-[1.05] tracking-tight text-warm-white"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 6.5rem)' }}
+            className="font-fraunces italic leading-[0.93] tracking-tight text-warm-white"
+            style={{ fontSize: 'clamp(4rem, 12vw, 10.5rem)' }}
           >
             Crafting
             <br />
@@ -28,40 +44,28 @@ export default function Hero() {
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal delay={160}>
-          <div className="mt-6 flex items-center gap-2.5">
-            <span
-              className="pulse h-2 w-2 rounded-full"
-              style={{ background: '#C9A86C' }}
-              aria-hidden="true"
-            />
-            <span className="font-mono text-xs text-muted-ash">Open to projects</span>
+        <ScrollReveal delay={200}>
+          <div
+            className="mt-10 flex items-center justify-between border-t pt-6"
+            style={{ borderColor: 'rgba(255,255,255,0.07)' }}
+          >
+            <div className="flex items-center gap-2.5">
+              <span
+                className="pulse h-1.5 w-1.5 rounded-full"
+                style={{ background: '#C4A05A' }}
+                aria-hidden="true"
+              />
+              <span className="font-mono text-[11px] text-muted-ash">Open to projects</span>
+            </div>
+            <a
+              href="#projects"
+              className="font-mono text-[11px] tracking-wider text-muted-ash transition-colors duration-200 hover:text-warm-white"
+            >
+              View Work ↓
+            </a>
           </div>
         </ScrollReveal>
-
-        <ScrollReveal delay={240}>
-          <a
-            href="#projects"
-            className="mt-8 inline-block rounded-full px-6 py-3 font-geist text-sm font-semibold transition-transform duration-200 active:-translate-y-px"
-            style={{ background: '#C9A86C', color: '#0E0E0C' }}
-          >
-            View Work
-          </a>
-        </ScrollReveal>
       </div>
-
-      {/* Right: placeholder card */}
-      <ScrollReveal delay={120} className="hidden md:block">
-        <div
-          className="flex h-72 items-center justify-center rounded-2xl"
-          style={{
-            background: 'var(--color-surface)',
-            border: '1px solid rgba(255,255,255,0.07)',
-          }}
-        >
-          <span className="font-mono text-xs text-faint-ghost">[ photo ]</span>
-        </div>
-      </ScrollReveal>
     </section>
   )
 }

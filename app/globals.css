@@ -1,20 +1,20 @@
-/* app/globals.css */
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #0E0E0C;
-  --color-surface: #161614;
-  --color-warm-white: #F2F0EB;
-  --color-muted-ash: #7A7874;
-  --color-faint-ghost: #3A3834;
-  --color-amber: #C9A86C;
+  --color-canvas: #0C0C0A;
+  --color-surface: #141412;
+  --color-surface-2: #1C1C1A;
+  --color-warm-white: #F0EDE8;
+  --color-muted-ash: #78756F;
+  --color-faint-ghost: #38352F;
+  --color-amber: #C4A05A;
 
   --font-family-fraunces: var(--font-fraunces), serif;
   --font-family-geist: var(--font-geist), sans-serif;
   --font-family-mono: var(--font-geist-mono), monospace;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,6 +31,18 @@ body {
   overflow-x: hidden;
 }
 
+/* Film grain overlay — fixed, pointer-events:none, GPU-isolated */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
 @keyframes status-pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.4); opacity: 0.3; }
@@ -38,4 +50,16 @@ body {
 
 .pulse {
   animation: status-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.email-link {
+  color: #78756F;
+}
+.email-link:hover {
+  color: #C4A05A;
 }

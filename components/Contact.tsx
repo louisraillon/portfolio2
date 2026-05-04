@@ -8,43 +8,41 @@ export default function Contact() {
       style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <ScrollReveal>
-        <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-faint-ghost">
+        <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.25em] text-faint-ghost">
           Contact
         </p>
       </ScrollReveal>
 
       <ScrollReveal delay={80}>
         <h2
-          className="font-fraunces italic text-warm-white"
-          style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 1.1 }}
+          className="font-fraunces italic leading-[0.95] tracking-tight text-warm-white"
+          style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)' }}
         >
-          Let's build
+          Let&apos;s build
           <br />
           something.
         </h2>
       </ScrollReveal>
 
       <ScrollReveal delay={160}>
+        <a
+          href="mailto:louisraillon61@gmail.com"
+          className="email-link mt-10 inline-block font-mono text-sm transition-colors duration-200"
+        >
+          louisraillon61@gmail.com ↗
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal delay={220}>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href="mailto:louisraillon61@gmail.com"
-            className="rounded-full font-geist text-sm font-semibold transition-opacity hover:opacity-85"
-            style={{
-              background: '#C9A86C',
-              color: '#0E0E0C',
-              padding: '0.75rem 1.375rem',
-            }}
-          >
-            Email
-          </a>
           <a
             href="https://github.com/louisraillon"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full font-geist text-sm text-warm-white"
+            className="rounded-full font-geist text-sm text-warm-white transition-opacity hover:opacity-70"
             style={{
               border: '1px solid rgba(255,255,255,0.12)',
-              padding: '0.75rem 1.375rem',
+              padding: '0.625rem 1.25rem',
             }}
           >
             GitHub ↗
@@ -53,10 +51,10 @@ export default function Contact() {
             href="https://linkedin.com/in/louisraillon"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full font-geist text-sm text-warm-white"
+            className="rounded-full font-geist text-sm text-warm-white transition-opacity hover:opacity-70"
             style={{
               border: '1px solid rgba(255,255,255,0.12)',
-              padding: '0.75rem 1.375rem',
+              padding: '0.625rem 1.25rem',
             }}
           >
             LinkedIn ↗
@@ -64,8 +62,8 @@ export default function Contact() {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal delay={240}>
-        <p className="mt-16 font-mono text-[10px] text-faint-ghost">
+      <ScrollReveal delay={300}>
+        <p className="mt-20 font-mono text-[10px] text-faint-ghost">
           © {new Date().getFullYear()} Louis Raillon
         </p>
       </ScrollReveal>
