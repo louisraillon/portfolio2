@@ -1,18 +1,17 @@
-// app/layout.tsx
 import type { Metadata } from 'next'
-import { Fraunces, Geist, Geist_Mono } from 'next/font/google'
+import { Bricolage_Grotesque, DM_Sans, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
-const fraunces = Fraunces({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-bricolage',
   display: 'swap',
-  axes: ['opsz'],
 })
 
-const geist = Geist({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-geist',
+  variable: '--font-dm-sans',
+  weight: ['300', '400', '500'],
   display: 'swap',
 })
 
@@ -24,13 +23,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Louis Raillon — Fullstack Developer',
-  description: 'Portfolio de Louis Raillon, développeur fullstack basé à Paris.',
+  description: 'Fullstack developer based in Paris, building digital products.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
-      <body style={{ background: '#0E0E0C', color: '#F2F0EB' }}>{children}</body>
+    <html lang="fr" className={`${bricolage.variable} ${dmSans.variable} ${geistMono.variable}`} style={{ colorScheme: 'light' }}>
+      <body style={{ background: '#F5F2EC', color: '#1A1916' }}>{children}</body>
     </html>
   )
 }

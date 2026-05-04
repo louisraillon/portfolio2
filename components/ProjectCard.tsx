@@ -12,84 +12,110 @@ export default function ProjectCard({ project, featured = false, onClick }: Prop
   return (
     <button
       onClick={() => onClick(project)}
-      className="w-full cursor-pointer text-left"
+      className="group w-full cursor-pointer text-left"
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'rgba(26,25,22,0.04)',
+        border: '1px solid rgba(26,25,22,0.09)',
         borderRadius: '1.5rem',
-        padding: '4px',
-        transition: 'border-color 350ms cubic-bezier(0.32,0.72,0,1)',
+        padding: '3px',
+        transition: 'border-color 300ms cubic-bezier(0.32,0.72,0,1)',
+        height: '100%',
       }}
       onMouseEnter={(e) => {
-        ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.14)'
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(27,67,50,0.3)'
       }}
       onMouseLeave={(e) => {
-        ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.06)'
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(26,25,22,0.09)'
       }}
-      aria-label={`Voir le projet ${project.title}`}
+      aria-label={`Voir ${project.title}`}
     >
-      {/* Inner core */}
       <div
-        className="flex h-full flex-col p-5"
         ref={(el) => {
           if (!el) return
           const btn = el.closest('button')
           if (!btn) return
-          btn.addEventListener('mouseenter', () => {
-            el.style.transform = 'translateY(-3px)'
-          })
-          btn.addEventListener('mouseleave', () => {
-            el.style.transform = 'translateY(0)'
-          })
+          btn.addEventListener('mouseenter', () => { el.style.transform = 'translateY(-2px)' })
+          btn.addEventListener('mouseleave', () => { el.style.transform = 'translateY(0)' })
         }}
+        className="flex h-full flex-col"
         style={{
-          background: 'var(--color-surface)',
-          borderRadius: 'calc(1.5rem - 4px)',
-          boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.05)',
-          transition: 'transform 350ms cubic-bezier(0.32,0.72,0,1)',
+          background: '#FFFFFF',
+          borderRadius: 'calc(1.5rem - 3px)',
+          boxShadow: 'inset 0 1px 1px rgba(26,25,22,0.03), 0 2px 8px rgba(26,25,22,0.06)',
+          transition: 'transform 300ms cubic-bezier(0.32,0.72,0,1)',
+          padding: featured ? '0' : '1.25rem',
+          overflow: 'hidden',
         }}
       >
+        {/* Featured: preview area */}
         {featured && (
           <div
-            className="mb-4 flex items-center justify-center rounded-xl"
+            className="flex items-end justify-between p-5"
             style={{
-              background: 'rgba(255,255,255,0.04)',
-              height: '120px',
-              border: '1px solid rgba(255,255,255,0.05)',
+              background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)',
+              height: '160px',
             }}
           >
-            <span className="font-mono text-xs text-faint-ghost">preview</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-emerald-200/70">
+              Featured
+            </span>
+            <span className="font-mono text-2xl text-white/20">01</span>
           </div>
         )}
 
-        <p className="font-geist text-sm font-semibold text-warm-white">{project.title}</p>
-        <p className="mt-1 font-mono text-xs text-muted-ash">{project.type}</p>
+        <div className={featured ? 'flex flex-1 flex-col p-5' : 'flex flex-1 flex-col'}>
+          {!featured && (
+            <span
+              className="mb-3 block font-mono text-xs font-medium"
+              style={{ color: '#1B4332' }}
+            >
+              {String(featured ? '01' : '')}
+            </span>
+          )}
 
-        {featured && (
+          <p className="font-display text-base font-bold leading-tight text-ink">
+            {project.title}
+          </p>
+          <p className="mt-1 font-mono text-[10px] text-ink-3">{project.type}</p>
+
+          {featured && (
+            <p className="mt-3 font-body text-sm leading-relaxed text-ink-2">
+              {project.description}
+            </p>
+          )}
+
           <div className="mt-3 flex flex-wrap gap-1.5">
-            {project.stack.map((tech) => (
+            {project.stack.slice(0, featured ? 5 : 2).map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-[10px] text-muted-ash"
+                className="rounded-full px-2 py-0.5 font-mono text-[9px] text-ink-2"
                 style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '9999px',
-                  padding: '2px 8px',
+                  background: 'rgba(26,25,22,0.06)',
+                  border: '1px solid rgba(26,25,22,0.09)',
                 }}
               >
                 {tech}
               </span>
             ))}
           </div>
-        )}
 
-        <p
-          className="mt-auto pt-4 font-mono text-xs"
-          style={{ color: '#C9A86C' }}
-        >
-          {featured ? 'View details →' : '→'}
-        </p>
+          <div className="mt-auto flex items-center justify-between pt-4">
+            <span
+              className="font-mono text-[10px] font-medium uppercase tracking-wider transition-colors duration-200"
+              style={{ color: '#1B4332' }}
+            >
+              {featured ? 'View project' : 'Details'}
+            </span>
+            <span
+              className="font-mono text-sm transition-transform duration-300"
+              style={{
+                color: '#1B4332',
+              }}
+            >
+              →
+            </span>
+          </div>
+        </div>
       </div>
     </button>
   )
