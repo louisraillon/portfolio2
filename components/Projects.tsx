@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { projects, type Project } from '@/lib/projects'
 import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
-import ScrollReveal from './ScrollReveal'
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
@@ -20,37 +19,32 @@ export default function Projects() {
         style={{ borderTop: '1px solid rgba(26,25,22,0.07)' }}
       >
         <div className="mx-auto max-w-6xl">
-          <ScrollReveal>
-            <div className="mb-12 flex items-end justify-between">
-              <div>
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-3">
-                  Selected Work
-                </p>
-                <h2
-                  className="font-display font-extrabold leading-tight tracking-tight text-ink"
-                  style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
-                >
-                  Things I&apos;ve built
-                </h2>
-              </div>
-              <span className="hidden font-mono text-[10px] text-ink-3 md:block">
-                {projects.length} projects
-              </span>
+          <div className="mb-12 flex items-end justify-between">
+            <div>
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-3">
+                Selected Work
+              </p>
+              <h2
+                className="font-display font-extrabold leading-tight tracking-tight text-ink"
+                style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
+              >
+                Things I&apos;ve built
+              </h2>
             </div>
-          </ScrollReveal>
+            <span className="hidden font-mono text-[10px] text-ink-3 md:block">
+              {projects.length} projects
+            </span>
+          </div>
 
-          {/* Bento grid: featured (2×2) + secondary stack */}
+          {/* Bento grid */}
           <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
             <div className="md:col-span-2 md:row-span-2" style={{ height: '100%' }}>
-            <ScrollReveal className="h-full">
               <ProjectCard project={featured} featured onClick={setSelected} />
-            </ScrollReveal>
             </div>
-
-            {secondary.map((project, i) => (
-              <ScrollReveal key={project.id} delay={(i + 1) * 80}>
+            {secondary.map((project) => (
+              <div key={project.id}>
                 <ProjectCard project={project} onClick={setSelected} />
-              </ScrollReveal>
+              </div>
             ))}
           </div>
         </div>
