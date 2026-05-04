@@ -1,1 +1,40 @@
-/* global styles */
+/* app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #0E0E0C;
+  --color-surface: #161614;
+  --color-warm-white: #F2F0EB;
+  --color-muted-ash: #7A7874;
+  --color-faint-ghost: #3A3834;
+  --color-amber: #C9A86C;
+
+  --font-family-fraunces: var(--font-fraunces), serif;
+  --font-family-geist: var(--font-geist), sans-serif;
+  --font-family-mono: var(--font-geist-mono), monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-warm-white);
+  font-family: var(--font-family-geist);
+}
+
+@keyframes status-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.3; }
+}
+
+.pulse {
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
