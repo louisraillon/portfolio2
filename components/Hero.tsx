@@ -10,7 +10,7 @@ export default function Hero() {
 
         {/* Left: headline block */}
         <div>
-          <ScrollReveal>
+          <ScrollReveal immediate>
             <div
               className="mb-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5"
               style={{
@@ -32,7 +32,7 @@ export default function Hero() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={80}>
+          <ScrollReveal delay={80} immediate>
             <h1
               className="font-display font-extrabold leading-[0.93] tracking-tight text-ink"
               style={{ fontSize: 'clamp(3.25rem, 8vw, 7rem)' }}
@@ -45,14 +45,14 @@ export default function Hero() {
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal delay={160}>
+          <ScrollReveal delay={160} immediate>
             <p className="mt-7 max-w-sm font-body text-base leading-relaxed text-ink-2">
               Fullstack developer based in Paris. I craft fast, accessible, and
               beautifully designed digital products — from idea to deployment.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={220}>
+          <ScrollReveal delay={220} immediate>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
@@ -73,7 +73,7 @@ export default function Hero() {
         </div>
 
         {/* Right: floating mini-bento */}
-        <ScrollReveal delay={120} className="hidden md:block">
+        <ScrollReveal delay={120} immediate className="hidden md:block">
           <div className="flex flex-col gap-3">
 
             {/* Availability card — forest green */}
