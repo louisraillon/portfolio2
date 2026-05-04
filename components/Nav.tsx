@@ -16,13 +16,13 @@ export default function Nav() {
         <div className="flex items-center gap-6">
           <a
             href="#projects"
-            className="font-geist text-xs text-muted-ash transition-colors duration-200 hover:text-warm-white"
+            className="font-geist text-xs text-muted-ash transition-colors duration-200 hover:text-warm-white py-3 inline-block"
           >
             Work
           </a>
           <a
             href="#contact"
-            className="font-geist text-xs text-muted-ash transition-colors duration-200 hover:text-warm-white"
+            className="font-geist text-xs text-muted-ash transition-colors duration-200 hover:text-warm-white py-3 inline-block"
           >
             Contact
           </a>

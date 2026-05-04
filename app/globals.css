@@ -28,6 +28,7 @@ body {
   background: var(--color-canvas);
   color: var(--color-warm-white);
   font-family: var(--font-family-geist);
+  overflow-x: hidden;
 }
 
 @keyframes status-pulse {

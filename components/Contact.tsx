@@ -32,7 +32,7 @@ export default function Contact() {
             style={{
               background: '#C9A86C',
               color: '#0E0E0C',
-              padding: '0.625rem 1.375rem',
+              padding: '0.75rem 1.375rem',
             }}
           >
             Email
@@ -44,7 +44,7 @@ export default function Contact() {
             className="rounded-full font-geist text-sm text-warm-white"
             style={{
               border: '1px solid rgba(255,255,255,0.12)',
-              padding: '0.625rem 1.375rem',
+              padding: '0.75rem 1.375rem',
             }}
           >
             GitHub ↗
@@ -56,7 +56,7 @@ export default function Contact() {
             className="rounded-full font-geist text-sm text-warm-white"
             style={{
               border: '1px solid rgba(255,255,255,0.12)',
-              padding: '0.625rem 1.375rem',
+              padding: '0.75rem 1.375rem',
             }}
           >
             LinkedIn ↗
