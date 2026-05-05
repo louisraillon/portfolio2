@@ -4,13 +4,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center px-6 py-24"
-      style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+      className="flex flex-col items-center px-6"
+      style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '7rem 1.5rem' }}
     >
       <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>
 
         {/* Label */}
-        <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
+        <p className="mb-5 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
           {'// contact'}
         </p>
 
@@ -24,14 +24,14 @@ export default function Contact() {
 
         {/* Sub */}
         <p
-          className="mx-auto mt-6 font-mono text-sm leading-relaxed"
+          className="mx-auto mt-8 font-mono text-sm leading-relaxed"
           style={{ color: '#565870', maxWidth: '34rem', textAlign: 'center' }}
         >
           Have a project in mind? Send me an email and I&apos;ll get back within 24 hours.
         </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <a
             href="mailto:louisraillon61@gmail.com"
             className="rounded font-mono text-sm font-bold transition-opacity hover:opacity-85 active:scale-[0.98]"

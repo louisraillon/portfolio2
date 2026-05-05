@@ -15,17 +15,15 @@ export default function Projects() {
     <>
       <section
         id="projects"
-        className="flex flex-col items-center px-6 py-24"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+        className="flex flex-col items-center px-6"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '7rem 1.5rem' }}
       >
         <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>
 
-          {/* Label */}
-          <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
+          <p className="mb-4 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
             {'// selected_work'}
           </p>
 
-          {/* Heading */}
           <h2
             className="font-mono font-bold leading-tight"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#E2E4EE', textAlign: 'center' }}
@@ -33,17 +31,17 @@ export default function Projects() {
             Things I&apos;ve built
           </h2>
 
-          <p className="mx-auto mt-4 font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center' }}>
+          <p className="mx-auto mt-5 font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center' }}>
             A selection of projects — full-stack apps, APIs, and tools.
           </p>
 
           {/* Featured */}
-          <div className="mt-12">
+          <div className="mt-16">
             <ProjectCard project={featured} index={0} onClick={setSelected} />
           </div>
 
           {/* Rest */}
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {rest.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i + 1} onClick={setSelected} />
             ))}

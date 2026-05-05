@@ -18,7 +18,7 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       style={{
         background: '#0D0D1A',
         border: '1px solid rgba(255,255,255,0.06)',
-        padding: '1.5rem',
+        padding: '2rem',
         textAlign: 'center',
       }}
       onMouseEnter={(e) => {
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       aria-label={`View ${project.title}`}
     >
       {/* Terminal bar */}
-      <div className="mb-4 flex items-center gap-1.5">
+      <div className="mb-6 flex items-center gap-1.5">
         <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
         <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
         <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
@@ -44,18 +44,18 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       </div>
 
       {/* Type as comment */}
-      <p className="font-mono text-[10px] mb-2" style={{ color: '#2A2C3E', textAlign: 'center' }}>
+      <p className="font-mono text-[10px] mb-3" style={{ color: '#2A2C3E', textAlign: 'center' }}>
         {'/* '}{project.type.toLowerCase().replace(/ /g, '_')}{' */'}
       </p>
 
       {/* Title */}
-      <h3 className="font-mono text-base font-bold mb-3" style={{ color: '#E2E4EE', textAlign: 'center' }}>
+      <h3 className="font-mono text-base font-bold mb-4" style={{ color: '#E2E4EE', textAlign: 'center' }}>
         <span style={{ color: '#00D084' }}>{'> '}</span>
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="font-mono text-xs leading-relaxed mb-4" style={{ color: '#565870', textAlign: 'center' }}>
+      <p className="font-mono text-xs leading-relaxed mb-6" style={{ color: '#565870', textAlign: 'center' }}>
         {project.description}
       </p>
 
