@@ -1,8 +1,8 @@
 export default function Hero() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center"
-      style={{ minHeight: '100dvh', paddingTop: '5rem', paddingBottom: '3rem' }}
+      className="relative"
+      style={{ minHeight: '100dvh', paddingTop: 'clamp(6rem, 18vh, 10rem)', paddingBottom: '5rem' }}
     >
       {/* Subtle grid texture */}
       <div
@@ -15,10 +15,11 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-3xl px-6 text-center">
+      {/* Main content */}
+      <div className="relative mx-auto w-full max-w-5xl px-6">
 
         {/* Status */}
-        <div className="mb-8 flex items-center justify-center gap-2.5">
+        <div className="mb-8 flex items-center gap-2.5">
           <span
             className="pulse h-2 w-2 rounded-full"
             style={{ background: '#00D084' }}
@@ -29,11 +30,11 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline */}
+        {/* Headline — larger to fill more vertical space */}
         <h1
-          className="font-bold leading-[1.05] tracking-tight"
+          className="font-bold leading-[1] tracking-tight"
           style={{
-            fontSize: 'clamp(3rem, 8vw, 7rem)',
+            fontSize: 'clamp(3.5rem, 10vw, 10rem)',
             fontFamily: 'var(--font-mono), monospace',
           }}
         >
@@ -42,13 +43,13 @@ export default function Hero() {
         </h1>
 
         {/* Role */}
-        <p className="mt-6 font-mono text-sm" style={{ color: '#565870' }}>
+        <p className="mt-6 font-mono text-base" style={{ color: '#565870' }}>
           Fullstack Developer — Paris, France
         </p>
 
         {/* Description */}
         <p
-          className="mx-auto mt-5 max-w-md font-body text-base leading-relaxed"
+          className="mt-5 max-w-lg font-body text-base leading-relaxed"
           style={{ color: '#565870' }}
         >
           I build products end-to-end — APIs, databases, interfaces.
@@ -56,7 +57,7 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
             href="#projects"
             className="rounded font-mono text-sm font-medium transition-opacity hover:opacity-85 active:scale-[0.98]"
@@ -80,20 +81,27 @@ export default function Hero() {
             Get in touch
           </a>
         </div>
-
-        {/* Tech strip */}
-        <div
-          className="mt-14 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 pt-5"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
-        >
-          {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL'].map((t) => (
-            <span key={t} className="font-mono text-[11px]" style={{ color: '#565870' }}>
-              {t}
-            </span>
-          ))}
-        </div>
-
       </div>
+
+      {/* Tech strip — absolutely pinned to bottom of section */}
+      <div
+        className="absolute bottom-0 left-0 right-0"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+      >
+        <div className="mx-auto w-full max-w-5xl px-6 py-5 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-x-5 gap-y-1">
+            {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL'].map((t) => (
+              <span key={t} className="font-mono text-[11px]" style={{ color: '#565870' }}>
+                {t}
+              </span>
+            ))}
+          </div>
+          <span className="font-mono text-[11px]" style={{ color: '#565870' }}>
+            Paris · {new Date().getFullYear()}
+          </span>
+        </div>
+      </div>
+
     </section>
   )
 }
