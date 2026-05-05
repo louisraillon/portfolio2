@@ -28,12 +28,9 @@ export default function CodeConsole() {
   const [blink, setBlink] = useState(true)
 
   useEffect(() => {
-    if (visible < LINES.length) {
-      const delay = LINES[visible].tokens.length === 0 ? 80 : 160
-      const t = setTimeout(() => setVisible((v) => v + 1), delay)
-      return () => clearTimeout(t)
-    }
-    const t = setTimeout(() => setVisible(0), 2800)
+    if (visible >= LINES.length) return
+    const delay = LINES[visible].tokens.length === 0 ? 80 : 160
+    const t = setTimeout(() => setVisible((v) => v + 1), delay)
     return () => clearTimeout(t)
   }, [visible])
 
