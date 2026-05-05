@@ -21,19 +21,19 @@ export default function Projects() {
         <div className="mx-auto w-full max-w-4xl text-center">
 
           {/* Label */}
-          <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E' }}>
+          <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
             {'// selected_work'}
           </p>
 
           {/* Heading */}
           <h2
             className="font-mono font-bold leading-tight"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#E2E4EE' }}
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#E2E4EE', textAlign: 'center' }}
           >
             Things I&apos;ve built
           </h2>
 
-          <p className="mx-auto mt-4 font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem' }}>
+          <p className="mx-auto mt-4 font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center' }}>
             A selection of projects — full-stack apps, APIs, and tools.
           </p>
 

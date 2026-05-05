@@ -14,11 +14,12 @@ export default function ProjectCard({ project, index, onClick }: Props) {
   return (
     <button
       onClick={() => onClick(project)}
-      className="group w-full text-left rounded-xl transition-all duration-200"
+      className="group w-full rounded-xl transition-all duration-200"
       style={{
         background: '#0D0D1A',
         border: '1px solid rgba(255,255,255,0.06)',
         padding: '1.5rem',
+        textAlign: 'center',
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget as HTMLElement
@@ -43,23 +44,23 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       </div>
 
       {/* Type as comment */}
-      <p className="font-mono text-[10px] mb-2" style={{ color: '#2A2C3E' }}>
+      <p className="font-mono text-[10px] mb-2" style={{ color: '#2A2C3E', textAlign: 'center' }}>
         {'/* '}{project.type.toLowerCase().replace(/ /g, '_')}{' */'}
       </p>
 
       {/* Title */}
-      <h3 className="font-mono text-base font-bold mb-3" style={{ color: '#E2E4EE' }}>
+      <h3 className="font-mono text-base font-bold mb-3" style={{ color: '#E2E4EE', textAlign: 'center' }}>
         <span style={{ color: '#00D084' }}>{'> '}</span>
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="font-mono text-xs leading-relaxed mb-4" style={{ color: '#565870' }}>
+      <p className="font-mono text-xs leading-relaxed mb-4" style={{ color: '#565870', textAlign: 'center' }}>
         {project.description}
       </p>
 
       {/* Stack */}
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap justify-center gap-1.5">
         {project.stack.map((tech) => (
           <span
             key={tech}
@@ -76,7 +77,7 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       </div>
 
       {/* Arrow */}
-      <div className="mt-4 flex justify-end">
+      <div className="mt-4 flex justify-center">
         <span
           className="font-mono text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           style={{ color: '#00D084' }}

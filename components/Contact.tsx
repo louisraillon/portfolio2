@@ -10,14 +10,14 @@ export default function Contact() {
       <div className="mx-auto w-full max-w-4xl">
 
         {/* Label */}
-        <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E' }}>
+        <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
           {'// contact'}
         </p>
 
         {/* Headline */}
         <h2
           className="font-mono font-bold leading-[1] tracking-tight"
-          style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: '#E2E4EE' }}
+          style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: '#E2E4EE', textAlign: 'center' }}
         >
           Get in touch.
         </h2>
@@ -25,7 +25,7 @@ export default function Contact() {
         {/* Sub */}
         <p
           className="mx-auto mt-6 font-mono text-sm leading-relaxed"
-          style={{ color: '#565870', maxWidth: '34rem' }}
+          style={{ color: '#565870', maxWidth: '34rem', textAlign: 'center' }}
         >
           Have a project in mind? Send me an email and I&apos;ll get back within 24 hours.
         </p>
