@@ -24,8 +24,8 @@ export default function Contact() {
 
         {/* Sub */}
         <p
-          className="mx-auto mt-8 font-mono text-sm leading-relaxed"
-          style={{ color: '#565870', maxWidth: '34rem', textAlign: 'center' }}
+          className="font-mono text-sm leading-relaxed"
+          style={{ color: '#565870', maxWidth: '34rem', textAlign: 'center', margin: '2rem auto 0' }}
         >
           Have a project in mind? Send me an email and I&apos;ll get back within 24 hours.
         </p>
