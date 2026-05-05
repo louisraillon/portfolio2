@@ -4,10 +4,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="px-6 py-24 md:py-32 text-center"
+      className="flex flex-col items-center px-6 py-24"
       style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
     >
-      <div className="mx-auto w-full max-w-4xl">
+      <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>
 
         {/* Label */}
         <p className="mb-3 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
