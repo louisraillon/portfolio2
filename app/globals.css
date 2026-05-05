@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #08080E;
-  --color-surface: #0E0E1A;
-  --color-surface-2: #161622;
+  --color-canvas: #080810;
+  --color-surface: #0D0D1A;
+  --color-surface-2: #13131F;
   --color-text: #E2E4EE;
   --color-text-2: #565870;
   --color-text-3: #2A2C3E;
@@ -11,7 +11,7 @@
   --color-green-dim: #003D26;
 
   --font-family-display: var(--font-mono), monospace;
-  --font-family-body: var(--font-geist), sans-serif;
+  --font-family-body: var(--font-mono), monospace;
   --font-family-mono: var(--font-mono), monospace;
 }
 
@@ -23,17 +23,34 @@
 
 html { scroll-behavior: smooth; }
 
+/* Global grid texture */
+body {
+  background-color: #080810;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(1.3); }
 }
 .pulse { animation: pulse-dot 2.4s ease-in-out infinite; }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: #00D084;
+}
+
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-ghost:hover { color: #E2E4EE !important; }
-.nav-link:hover { color: #E2E4EE !important; }
-.contact-link:hover { color: #E2E4EE !important; }
+.ghost-btn:hover { color: #E2E4EE !important; }

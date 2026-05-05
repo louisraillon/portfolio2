@@ -64,19 +64,19 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div
-          className="fixed inset-0 z-40 flex flex-col justify-center px-8 md:hidden"
-          style={{ background: '#08080E' }}
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center md:hidden"
+          style={{ background: '#080810' }}
         >
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col items-center gap-6">
             {[
-              { label: 'Work', href: '#projects' },
-              { label: 'Contact', href: '#contact' },
+              { label: '// work', href: '#projects' },
+              { label: '// contact', href: '#contact' },
             ].map((l, i) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-mono text-4xl font-bold"
+                className="font-mono text-3xl font-bold"
                 style={{
                   color: '#E2E4EE',
                   animation: `slideUp 300ms ease ${i * 60}ms both`,
@@ -87,10 +87,10 @@ export default function Nav() {
             ))}
           </div>
           <p
-            className="absolute bottom-10 left-8 font-mono text-[10px]"
-            style={{ color: '#565870', animation: 'slideUp 300ms ease 180ms both' }}
+            className="absolute bottom-10 font-mono text-[10px]"
+            style={{ color: '#2A2C3E', animation: 'slideUp 300ms ease 180ms both' }}
           >
-            Louis Raillon — Fullstack Developer
+            louisraillon.dev · {new Date().getFullYear()}
           </p>
         </div>
       )}
