@@ -8,43 +8,41 @@ import ProjectModal from './ProjectModal'
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
 
-  const featured = projects.find((p) => p.featured)!
-  const secondary = projects.filter((p) => !p.featured)
-
   return (
     <>
       <section
         id="projects"
-        className="px-6 py-24 md:px-12 md:py-36"
-        style={{ borderTop: '1px solid rgba(26,25,22,0.07)' }}
+        className="px-6 py-24 md:px-0 md:py-32"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto w-full max-w-5xl px-6">
+          {/* Section header */}
           <div className="mb-12 flex items-end justify-between">
             <div>
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-3">
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: '#2A2C3E' }}>
                 Selected Work
               </p>
               <h2
-                className="font-display font-extrabold leading-tight tracking-tight text-ink"
-                style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
+                className="font-mono font-bold leading-tight"
+                style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: '#E2E4EE' }}
               >
                 Things I&apos;ve built
               </h2>
             </div>
-            <span className="hidden font-mono text-[10px] text-ink-3 md:block">
+            <span className="hidden font-mono text-[11px] md:block" style={{ color: '#2A2C3E' }}>
               {projects.length} projects
             </span>
           </div>
 
-          {/* Bento grid */}
-          <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
-            <div className="md:col-span-2 md:row-span-2" style={{ height: '100%' }}>
-              <ProjectCard project={featured} featured onClick={setSelected} />
-            </div>
-            {secondary.map((project) => (
-              <div key={project.id}>
-                <ProjectCard project={project} onClick={setSelected} />
-              </div>
+          {/* Grid */}
+          <div className="grid gap-4 md:grid-cols-2">
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={i}
+                onClick={setSelected}
+              />
             ))}
           </div>
         </div>

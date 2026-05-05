@@ -1,35 +1,21 @@
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque, DM_Sans, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  variable: '--font-bricolage',
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500'],
-  display: 'swap',
-})
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-  display: 'swap',
-})
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Louis Raillon — Fullstack Developer',
-  description: 'Fullstack developer based in Paris, building digital products.',
+  description: 'Fullstack developer based in Paris. I build fast, clean, deployed products.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${bricolage.variable} ${dmSans.variable} ${geistMono.variable}`} style={{ colorScheme: 'light' }}>
-      <body style={{ background: '#F5F2EC', color: '#1A1916' }}>{children}</body>
+    <html lang="fr" className={`${geist.variable} ${geistMono.variable}`} style={{ colorScheme: 'dark' }}>
+      <body style={{ background: '#08080E', color: '#E2E4EE', fontFamily: 'var(--font-geist), sans-serif', overflowX: 'hidden' }}>
+        {children}
+      </body>
     </html>
   )
 }

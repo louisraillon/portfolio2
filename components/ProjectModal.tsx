@@ -25,18 +25,20 @@ export default function ProjectModal({ project, onClose }: Props) {
     <AnimatePresence>
       {project && (
         <>
+          {/* Backdrop */}
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
             onClick={onClose}
             className="fixed inset-0 z-40"
-            style={{ background: 'rgba(26,25,22,0.4)', backdropFilter: 'blur(4px)' }}
+            style={{ background: 'rgba(8,8,14,0.8)', backdropFilter: 'blur(4px)' }}
             aria-hidden="true"
           />
 
+          {/* Drawer */}
           <motion.aside
             key="drawer"
             initial={{ x: '100%' }}
@@ -45,59 +47,65 @@ export default function ProjectModal({ project, onClose }: Props) {
             transition={{ type: 'spring', stiffness: 120, damping: 18 }}
             className="fixed right-0 top-0 z-50 flex h-full flex-col overflow-y-auto"
             style={{
-              width: 'min(500px, 92vw)',
-              background: '#FFFFFF',
-              borderLeft: '1px solid rgba(26,25,22,0.09)',
+              width: 'min(480px, 92vw)',
+              background: '#0E0E1A',
+              borderLeft: '1px solid rgba(255,255,255,0.07)',
               padding: '2rem 1.75rem',
             }}
             role="dialog"
             aria-modal="true"
             aria-label={project.title}
           >
-            {/* Header */}
+            {/* Top bar */}
             <div className="mb-8 flex items-center justify-between">
               <span
-                className="rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em]"
+                className="rounded px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em]"
                 style={{
-                  background: 'rgba(27,67,50,0.09)',
-                  border: '1px solid rgba(27,67,50,0.15)',
-                  color: '#1B4332',
+                  background: 'rgba(0,208,132,0.08)',
+                  border: '1px solid rgba(0,208,132,0.15)',
+                  color: '#00D084',
                 }}
               >
                 {project.type}
               </span>
               <button
                 onClick={onClose}
-                className="flex h-8 w-8 items-center justify-center rounded-full font-mono text-sm text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink"
-                aria-label="Fermer"
+                className="flex h-8 w-8 items-center justify-center rounded font-mono text-sm transition-colors duration-150"
+                style={{ color: '#565870', border: '1px solid rgba(255,255,255,0.07)' }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
+                aria-label="Close"
               >
                 ✕
               </button>
             </div>
 
-            {/* Preview */}
+            {/* Terminal preview bar */}
             <div
-              className="mb-6 flex items-end rounded-2xl p-5"
-              style={{
-                background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 60%, #40916C 100%)',
-                height: '140px',
-              }}
+              className="mb-6 rounded-lg p-4"
+              style={{ background: '#161622', border: '1px solid rgba(255,255,255,0.06)' }}
             >
-              <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-200/60">
-                Preview
+              <div className="flex gap-1.5 mb-3">
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+              </div>
+              <p className="font-mono text-[11px]" style={{ color: '#2A2C3E' }}>
+                <span style={{ color: '#00D084' }}>~/projects/</span>
+                {project.id}
               </p>
             </div>
 
             {/* Title */}
             <h2
-              className="font-display font-extrabold leading-tight tracking-tight text-ink"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}
+              className="font-mono font-bold leading-tight"
+              style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', color: '#E2E4EE' }}
             >
               {project.title}
             </h2>
 
             {/* Description */}
-            <p className="mt-4 font-body text-sm leading-relaxed text-ink-2">
+            <p className="mt-4 font-body text-sm leading-relaxed" style={{ color: '#565870' }}>
               {project.description}
             </p>
 
@@ -106,10 +114,11 @@ export default function ProjectModal({ project, onClose }: Props) {
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full px-3 py-1 font-mono text-xs text-ink-2"
+                  className="rounded px-2.5 py-1 font-mono text-xs"
                   style={{
-                    background: 'rgba(26,25,22,0.06)',
-                    border: '1px solid rgba(26,25,22,0.09)',
+                    background: 'rgba(0,208,132,0.08)',
+                    border: '1px solid rgba(0,208,132,0.15)',
+                    color: '#00D084',
                   }}
                 >
                   {tech}
@@ -124,8 +133,14 @@ export default function ProjectModal({ project, onClose }: Props) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full px-5 py-2.5 font-body text-sm text-ink transition-colors hover:border-ink"
-                  style={{ border: '1px solid rgba(26,25,22,0.15)' }}
+                  className="rounded font-mono text-sm transition-colors duration-150"
+                  style={{
+                    padding: '0.5rem 1.25rem',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    color: '#565870',
+                  }}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
                 >
                   GitHub ↗
                 </a>
@@ -135,8 +150,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full px-5 py-2.5 font-body text-sm font-medium text-white transition-opacity hover:opacity-88"
-                  style={{ background: '#1B4332' }}
+                  className="rounded font-mono text-sm transition-opacity hover:opacity-85"
+                  style={{
+                    padding: '0.5rem 1.25rem',
+                    background: '#00D084',
+                    color: '#08080E',
+                  }}
                 >
                   Live ↗
                 </a>

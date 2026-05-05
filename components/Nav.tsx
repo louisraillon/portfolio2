@@ -1,102 +1,85 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-
-const links = [
-  { label: 'Work', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useState } from 'react'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const sentinel = document.createElement('div')
-    sentinel.style.cssText = 'position:absolute;top:80px;height:1px;width:1px;pointer-events:none;'
-    document.body.prepend(sentinel)
-    const obs = new IntersectionObserver(
-      ([entry]) => setScrolled(!entry.isIntersecting),
-      { threshold: 0 }
-    )
-    obs.observe(sentinel)
-    return () => { obs.disconnect(); sentinel.remove() }
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
 
   return (
     <>
       <nav
-        className="fixed left-0 right-0 top-0 z-50 transition-all duration-300"
+        className="fixed left-0 right-0 top-0 z-50"
         style={{
-          background: scrolled ? 'rgba(245,242,236,0.95)' : 'rgba(245,242,236,0.5)',
-          backdropFilter: 'blur(14px)',
-          borderBottom: `1px solid ${scrolled ? 'rgba(26,25,22,0.09)' : 'transparent'}`,
+          background: 'rgba(8,8,14,0.92)',
+          backdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12">
-          <a href="/" className="font-display text-sm font-extrabold tracking-tight text-ink">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <a href="/" className="font-mono text-sm font-bold" style={{ color: '#00D084' }}>
             L.R
           </a>
 
-          {/* Desktop links */}
+          {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
-            {links.map((l) => (
+            {['Work', 'Contact'].map((label) => (
               <a
-                key={l.href}
-                href={l.href}
-                className="font-body text-sm text-ink-2 transition-colors duration-200 hover:text-ink"
+                key={label}
+                href={`#${label.toLowerCase()}`}
+                className="font-mono text-xs transition-colors duration-150"
+                style={{ color: '#565870' }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#E2E4EE')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#565870')}
               >
-                {l.label}
+                {label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="rounded-full px-4 py-2 font-body text-sm font-medium text-white transition-opacity hover:opacity-85 active:-translate-y-px"
-              style={{ background: '#1B4332' }}
-            >
-              Hire me
-            </a>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile toggle */}
           <button
-            className="relative flex h-8 w-8 flex-col items-center justify-center md:hidden"
+            className="relative flex h-7 w-7 flex-col items-center justify-center gap-1.5 md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Fermer' : 'Menu'}
+            aria-label="Menu"
           >
             <span
-              className="absolute block h-px w-5 bg-ink transition-all duration-300"
-              style={{ transform: open ? 'rotate(45deg)' : 'translateY(-5px)' }}
+              className="block h-px w-5 transition-all duration-200"
+              style={{
+                background: '#565870',
+                transform: open ? 'rotate(45deg) translateY(4px)' : 'none',
+              }}
             />
             <span
-              className="absolute block h-px w-5 bg-ink transition-all duration-300"
-              style={{ transform: open ? 'rotate(-45deg)' : 'translateY(5px)' }}
+              className="block h-px w-5 transition-all duration-200"
+              style={{
+                background: '#565870',
+                transform: open ? 'rotate(-45deg) translateY(-4px)' : 'none',
+                opacity: open ? 1 : 1,
+              }}
             />
           </button>
         </div>
       </nav>
 
-      {/* Mobile full-screen overlay */}
+      {/* Mobile menu */}
       {open && (
         <div
           className="fixed inset-0 z-40 flex flex-col justify-center px-8 md:hidden"
-          style={{ background: 'rgba(245,242,236,0.99)', backdropFilter: 'blur(20px)' }}
+          style={{ background: '#08080E' }}
         >
-          <div className="flex flex-col gap-5">
-            {[...links, { label: 'Hire me', href: '#contact' }].map((l, i) => (
+          <div className="flex flex-col gap-6">
+            {[
+              { label: 'Work', href: '#work' },
+              { label: 'Contact', href: '#contact' },
+            ].map((l, i) => (
               <a
-                key={l.href + i}
+                key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-display text-5xl font-extrabold"
+                className="font-mono text-4xl font-bold"
                 style={{
-                  color: l.label === 'Hire me' ? '#1B4332' : '#1A1916',
-                  animation: `slideUp 350ms cubic-bezier(0.32,0.72,0,1) ${i * 70}ms both`,
+                  color: '#E2E4EE',
+                  animation: `slideUp 300ms ease ${i * 60}ms both`,
                 }}
               >
                 {l.label}
@@ -104,8 +87,8 @@ export default function Nav() {
             ))}
           </div>
           <p
-            className="absolute bottom-12 left-8 font-mono text-[10px] text-ink-3"
-            style={{ animation: 'slideUp 350ms cubic-bezier(0.32,0.72,0,1) 250ms both' }}
+            className="absolute bottom-10 left-8 font-mono text-[10px]"
+            style={{ color: '#2A2C3E', animation: 'slideUp 300ms ease 180ms both' }}
           >
             Louis Raillon — Fullstack Developer
           </p>

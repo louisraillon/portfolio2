@@ -1,105 +1,88 @@
 export default function Hero() {
   return (
     <section
-      className="relative flex flex-col justify-center px-6 pb-16 pt-28 md:px-12 md:pb-24 md:pt-36"
+      className="flex flex-col justify-center px-6 pb-16 pt-28 md:px-0 md:pb-24"
       style={{ minHeight: '100dvh' }}
     >
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 md:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto w-full max-w-5xl px-6">
 
-        {/* Left: headline block */}
-        <div>
-          <div className="anim anim-d0 mb-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5"
-            style={{ background: 'rgba(27,67,50,0.09)', border: '1px solid rgba(27,67,50,0.18)' }}
-          >
-            <span className="pulse h-1.5 w-1.5 rounded-full" style={{ background: '#1B4332' }} aria-hidden="true" />
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.2em]" style={{ color: '#1B4332' }}>
-              Open to projects
-            </span>
-          </div>
-
-          <h1
-            className="anim anim-d1 font-display font-extrabold leading-[0.93] tracking-tight text-ink"
-            style={{ fontSize: 'clamp(3.25rem, 8vw, 7rem)' }}
-          >
-            Building
-            <br />
-            products
-            <br />
-            <span style={{ color: '#1B4332' }}>people love.</span>
-          </h1>
-
-          <p className="anim anim-d2 mt-7 max-w-sm font-body text-base leading-relaxed text-ink-2">
-            Fullstack developer based in Paris. I craft fast, accessible, and
-            beautifully designed digital products — from idea to deployment.
-          </p>
-
-          <div className="anim anim-d3 mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#projects"
-              className="rounded-full px-6 py-3 font-body text-sm font-medium text-white transition-opacity hover:opacity-88 active:-translate-y-px"
-              style={{ background: '#1B4332' }}
-            >
-              See my work
-            </a>
-            <a
-              href="#contact"
-              className="rounded-full px-6 py-3 font-body text-sm font-medium text-ink transition-colors duration-200"
-              style={{ border: '1px solid rgba(26,25,22,0.15)' }}
-            >
-              Get in touch
-            </a>
-          </div>
+        {/* Status */}
+        <div className="mb-8 flex items-center gap-2.5">
+          <span
+            className="pulse h-2 w-2 rounded-full"
+            style={{ background: '#00D084' }}
+            aria-hidden="true"
+          />
+          <span className="font-mono text-xs" style={{ color: '#00D084' }}>
+            available for freelance
+          </span>
         </div>
 
-        {/* Right: floating mini-bento */}
-        <div className="anim anim-d1 hidden flex-col gap-3 md:flex">
+        {/* Headline */}
+        <h1
+          className="font-display font-bold leading-[1] tracking-tight"
+          style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#E2E4EE' }}
+        >
+          Louis Raillon.
+        </h1>
 
-          {/* Availability card */}
-          <div
-            className="rounded-[1.5rem] p-[3px]"
-            style={{ background: 'rgba(27,67,50,0.12)', border: '1px solid rgba(27,67,50,0.2)' }}
+        {/* Role */}
+        <p className="mt-4 font-mono text-base" style={{ color: '#565870' }}>
+          Fullstack Developer — Paris, France
+        </p>
+
+        {/* Description */}
+        <p
+          className="mt-8 max-w-lg font-body text-base leading-relaxed"
+          style={{ color: '#565870' }}
+        >
+          I build products end-to-end — APIs, databases, interfaces.
+          Fast, clean, and shipped.
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="#projects"
+            className="rounded font-mono text-sm font-medium transition-opacity hover:opacity-85 active:scale-[0.98]"
+            style={{
+              background: '#00D084',
+              color: '#08080E',
+              padding: '0.625rem 1.375rem',
+            }}
           >
-            <div className="flex flex-col gap-4 rounded-[calc(1.5rem-3px)] p-6" style={{ background: '#1B4332' }}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="pulse h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-emerald-200">Available now</span>
-                </div>
-                <span className="font-mono text-[10px] text-emerald-300/70">Paris, FR</span>
-              </div>
-              <p className="font-display text-xl font-bold leading-snug text-white">
-                Open to freelance
-                <br />
-                <span className="text-emerald-200">& collaborations.</span>
-              </p>
-            </div>
-          </div>
-
-          {/* Stack card */}
-          <div
-            className="rounded-[1.5rem] p-[3px]"
-            style={{ background: 'rgba(26,25,22,0.04)', border: '1px solid rgba(26,25,22,0.09)' }}
+            See my work →
+          </a>
+          <a
+            href="#contact"
+            className="hero-ghost rounded font-mono text-sm transition-colors duration-150"
+            style={{
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: '#565870',
+              padding: '0.625rem 1.375rem',
+            }}
           >
-            <div
-              className="rounded-[calc(1.5rem-3px)] p-5"
-              style={{ background: '#FFFFFF', boxShadow: 'inset 0 1px 1px rgba(26,25,22,0.04)' }}
-            >
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-3">Tech stack</p>
-              <div className="flex flex-wrap gap-1.5">
-                {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Tailwind'].map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full px-2.5 py-1 font-mono text-[10px] text-ink-2"
-                    style={{ background: 'rgba(26,25,22,0.05)', border: '1px solid rgba(26,25,22,0.09)' }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
+            Get in touch
+          </a>
         </div>
+
+        {/* Tech strip */}
+        <div
+          className="mt-16 flex flex-wrap items-center justify-between gap-4 pt-6"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+        >
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL'].map((t) => (
+              <span key={t} className="font-mono text-[11px]" style={{ color: '#2A2C3E' }}>
+                {t}
+              </span>
+            ))}
+          </div>
+          <span className="font-mono text-[11px]" style={{ color: '#2A2C3E' }}>
+            Paris · 2025
+          </span>
+        </div>
+
       </div>
     </section>
   )
