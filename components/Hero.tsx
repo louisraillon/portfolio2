@@ -1,3 +1,5 @@
+import CodeConsole from './CodeConsole'
+
 export default function Hero() {
   return (
     <section
@@ -55,6 +57,11 @@ export default function Hero() {
         >
           Get in touch
         </a>
+      </div>
+
+      {/* Code console */}
+      <div className="mt-12 w-full" style={{ maxWidth: '38rem' }}>
+        <CodeConsole />
       </div>
 
       {/* Tech strip */}

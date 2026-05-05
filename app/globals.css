@@ -23,13 +23,16 @@
 
 html { scroll-behavior: smooth; }
 
-/* Global grid texture */
+/* Checkered background */
 body {
   background-color: #080810;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(45deg, rgba(255,255,255,0.022) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.022) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.022) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.022) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
 }
 
 @keyframes pulse-dot {
