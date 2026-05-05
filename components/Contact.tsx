@@ -9,7 +9,7 @@ export default function Contact() {
     >
       <div className="mx-auto w-full max-w-5xl px-6">
         {/* Label */}
-        <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: '#2A2C3E' }}>
+        <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: '#565870' }}>
           Contact
         </p>
 
@@ -22,7 +22,7 @@ export default function Contact() {
         </h2>
 
         {/* Sub */}
-        <p className="mt-6 max-w-md font-body text-base leading-relaxed" style={{ color: '#565870' }}>
+        <p className="mt-6 font-body text-base leading-relaxed" style={{ color: '#565870', maxWidth: '36rem' }}>
           Have a project in mind or want to collaborate? Send me an email and I&apos;ll get back to you within 24 hours.
         </p>
 
@@ -45,7 +45,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="rounded font-mono text-sm transition-colors duration-150"
             style={{
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.18)',
               color: '#565870',
               padding: '0.625rem 1.375rem',
             }}
@@ -60,7 +60,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="rounded font-mono text-sm transition-colors duration-150"
             style={{
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.18)',
               color: '#565870',
               padding: '0.625rem 1.375rem',
             }}
@@ -76,10 +76,10 @@ export default function Contact() {
           className="mt-20 flex items-center justify-between"
           style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem' }}
         >
-          <p className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
+          <p className="font-mono text-[10px]" style={{ color: '#565870' }}>
             © {new Date().getFullYear()} Louis Raillon
           </p>
-          <p className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
+          <p className="font-mono text-[10px]" style={{ color: '#565870' }}>
             Paris, France
           </p>
         </div>

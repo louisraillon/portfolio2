@@ -8,6 +8,9 @@ import ProjectModal from './ProjectModal'
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
 
+  const featured = projects.find((p) => p.featured)!
+  const rest = projects.filter((p) => !p.featured)
+
   return (
     <>
       <section
@@ -19,7 +22,7 @@ export default function Projects() {
           {/* Section header */}
           <div className="mb-12 flex items-end justify-between">
             <div>
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: '#2A2C3E' }}>
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: '#565870' }}>
                 Selected Work
               </p>
               <h2
@@ -29,18 +32,28 @@ export default function Projects() {
                 Things I&apos;ve built
               </h2>
             </div>
-            <span className="hidden font-mono text-[11px] md:block" style={{ color: '#2A2C3E' }}>
+            <span className="hidden font-mono text-[11px] md:block" style={{ color: '#565870' }}>
               {projects.length} projects
             </span>
           </div>
 
-          {/* Grid */}
+          {/* Featured full-width */}
+          <div className="mb-4">
+            <ProjectCard
+              key={featured.id}
+              project={featured}
+              index={0}
+              onClick={setSelected}
+            />
+          </div>
+
+          {/* Rest in 2-col grid */}
           <div className="grid gap-4 md:grid-cols-2">
-            {projects.map((project, i) => (
+            {rest.map((project, i) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                index={i}
+                index={i + 1}
                 onClick={setSelected}
               />
             ))}

@@ -22,10 +22,10 @@ export default function Nav() {
 
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
-            {['Work', 'Contact'].map((label) => (
+            {[{ label: 'Work', href: '#projects' }, { label: 'Contact', href: '#contact' }].map(({ label, href }) => (
               <a
                 key={label}
-                href={`#${label.toLowerCase()}`}
+                href={href}
                 className="font-mono text-xs transition-colors duration-150"
                 style={{ color: '#565870' }}
                 onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#E2E4EE')}
@@ -69,7 +69,7 @@ export default function Nav() {
         >
           <div className="flex flex-col gap-6">
             {[
-              { label: 'Work', href: '#work' },
+              { label: 'Work', href: '#projects' },
               { label: 'Contact', href: '#contact' },
             ].map((l, i) => (
               <a
@@ -88,7 +88,7 @@ export default function Nav() {
           </div>
           <p
             className="absolute bottom-10 left-8 font-mono text-[10px]"
-            style={{ color: '#2A2C3E', animation: 'slideUp 300ms ease 180ms both' }}
+            style={{ color: '#565870', animation: 'slideUp 300ms ease 180ms both' }}
           >
             Louis Raillon — Fullstack Developer
           </p>
