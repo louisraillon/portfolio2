@@ -15,7 +15,7 @@ export default function Nav() {
           borderBottom: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <div style={{ margin: '0 auto', maxWidth: '64rem', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem' }}>
           <a href="/" className="font-mono text-sm font-bold" style={{ color: '#00D084' }}>
             L.R
           </a>
