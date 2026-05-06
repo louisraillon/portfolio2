@@ -57,7 +57,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             aria-label={project.title}
           >
             {/* Top bar */}
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-10 flex items-center justify-between">
               <span
                 className="rounded px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em]"
                 style={{
@@ -105,12 +105,12 @@ export default function ProjectModal({ project, onClose }: Props) {
             </h2>
 
             {/* Description */}
-            <p className="mt-4 font-body text-sm leading-relaxed" style={{ color: '#565870' }}>
+            <p className="mt-6 font-body text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9' }}>
               {project.description}
             </p>
 
             {/* Stack */}
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-8 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
@@ -127,7 +127,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             </div>
 
             {/* Links */}
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               {project.github && (
                 <a
                   href={project.github}
