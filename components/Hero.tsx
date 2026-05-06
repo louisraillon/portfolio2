@@ -1,5 +1,9 @@
 import CodeConsole from './CodeConsole'
 
+const anim = (delay: number) => ({
+  animation: `fadeSlideUp 0.7s ease ${delay}ms both`,
+})
+
 export default function Hero() {
   return (
     <section
@@ -7,7 +11,7 @@ export default function Hero() {
       style={{ minHeight: '100dvh', padding: '7rem 1.5rem 6rem', textAlign: 'center' }}
     >
       {/* Status badge */}
-      <div style={{ marginBottom: '3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <div style={{ ...anim(100), marginBottom: '3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
         <span className="pulse h-2 w-2 rounded-full" style={{ background: '#00D084' }} aria-hidden="true" />
         <span className="cursor font-mono text-xs" style={{ color: '#00D084' }}>
           available for freelance
@@ -18,6 +22,7 @@ export default function Hero() {
       <h1
         className="font-bold leading-[1] tracking-tight"
         style={{
+          ...anim(200),
           fontSize: 'clamp(3.5rem, 10vw, 9rem)',
           fontFamily: 'var(--font-mono), monospace',
           textAlign: 'center',
@@ -28,7 +33,7 @@ export default function Hero() {
       </h1>
 
       {/* Role */}
-      <p className="font-mono text-sm" style={{ color: '#565870', marginTop: '2rem', textAlign: 'center' }}>
+      <p className="font-mono text-sm" style={{ ...anim(300), color: '#565870', marginTop: '2rem', textAlign: 'center' }}>
         <span style={{ color: '#2A2C3E' }}>{'// '}</span>
         fullstack_developer · paris · france
       </p>
@@ -36,14 +41,14 @@ export default function Hero() {
       {/* Description */}
       <p
         className="font-mono text-sm leading-relaxed"
-        style={{ color: '#565870', maxWidth: '36rem', marginTop: '1.25rem', textAlign: 'center' }}
+        style={{ ...anim(400), color: '#565870', maxWidth: '36rem', marginTop: '1.25rem', textAlign: 'center' }}
       >
         I build products end-to-end — APIs, databases, interfaces.
         Fast, clean, and shipped.
       </p>
 
       {/* CTAs */}
-      <div style={{ marginTop: '2.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+      <div style={{ ...anim(500), marginTop: '2.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
         <a
           href="#projects"
           className="rounded font-mono text-sm font-bold transition-opacity hover:opacity-85 active:scale-[0.98]"
@@ -61,14 +66,14 @@ export default function Hero() {
       </div>
 
       {/* Code console */}
-      <div style={{ marginTop: '4rem', width: '100%', maxWidth: '40rem' }}>
+      <div style={{ ...anim(650), marginTop: '4rem', width: '100%', maxWidth: '40rem' }}>
         <CodeConsole />
       </div>
 
       {/* Tech strip */}
       <div
         className="absolute bottom-0 left-0 right-0"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0 2rem', padding: '1.25rem 1.5rem' }}
+        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0 2rem', padding: '1.25rem 1.5rem', animation: 'fadeIn 1s ease 800ms both' }}
       >
         {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Express'].map((t) => (
           <span key={t} className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>

@@ -13,6 +13,7 @@ export default function Nav() {
           background: 'rgba(8,8,14,0.92)',
           backdropFilter: 'blur(12px)',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
+          animation: 'slideDown 0.5s ease both',
         }}
       >
         <div style={{ margin: '0 auto', maxWidth: '64rem', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem' }}>
