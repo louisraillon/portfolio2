@@ -20,6 +20,7 @@ export const projects: Project[] = [
       'Plateforme de lecture de mangas avec authentification, catalogue et lecteur page par page. Backend Express + SQLite, frontend HTML/CSS/JS vanilla.',
     stack: ['Node.js', 'Express', 'SQLite', 'HTML', 'CSS'],
     github: 'https://github.com/louisraillon/scantrad',
+    live: 'https://scantrad.lmraillondev.com',
     image: '/images/scantrad.png',
     featured: true,
   },
