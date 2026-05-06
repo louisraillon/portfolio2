@@ -6,6 +6,7 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'sw
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 export const metadata: Metadata = {
+  icons: { icon: '/favicon.svg', shortcut: '/favicon.svg' },
   title: 'Louis Raillon — Fullstack Developer',
   description: 'Fullstack developer based in Paris. I build fast, clean, deployed products.',
   openGraph: {

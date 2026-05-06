@@ -37,38 +37,41 @@ export default function Hero() {
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background: 'radial-gradient(ellipse 50% 45% at 50% 50%, transparent 0%, #050508 100%)',
       }} />
+
       {/* Status badge */}
-      <div style={{ ...anim(100), marginBottom: '3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <div style={{ ...anim(100), marginBottom: '2.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
         <span className="pulse h-2 w-2 rounded-full" style={{ background: '#00D084' }} aria-hidden="true" />
         <span className="cursor font-mono text-xs" style={{ color: '#00D084' }}>
           available for freelance
         </span>
       </div>
 
-      {/* Headline */}
+      {/* Name — secondary, above role */}
+      <p
+        className="font-mono text-sm"
+        style={{ ...anim(150), color: '#565870', marginBottom: '1rem', letterSpacing: '0.1em' }}
+      >
+        <span style={{ color: '#2A2C3E' }}>{'// '}</span>Louis Raillon · Paris, France
+      </p>
+
+      {/* Headline — role first, clear */}
       <h1
         className="font-bold leading-[1] tracking-tight"
         style={{
           ...anim(200),
-          fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+          fontSize: 'clamp(3rem, 9vw, 8rem)',
           fontFamily: 'var(--font-mono), monospace',
           textAlign: 'center',
         }}
       >
-        <Typewriter text="LMRaillon " speed={80} delay={300} triggerOnLoad style={{ color: '#E2E4EE' }} />
-        <Typewriter text="Dev.com" speed={80} delay={980} triggerOnLoad style={{ color: '#00D084' }} />
+        <Typewriter text="Fullstack " speed={70} delay={300} triggerOnLoad style={{ color: '#E2E4EE' }} />
+        <Typewriter text="Developer" speed={70} delay={1000} triggerOnLoad style={{ color: '#00D084' }} />
       </h1>
-
-      {/* Role */}
-      <p className="font-mono text-sm" style={{ ...anim(300), color: '#565870', marginTop: '2rem', textAlign: 'center' }}>
-        <span style={{ color: '#2A2C3E' }}>{'// '}</span>
-        fullstack_developer · paris · france
-      </p>
 
       {/* Description */}
       <p
         className="font-mono text-sm leading-relaxed"
-        style={{ ...anim(400), color: '#565870', maxWidth: '36rem', marginTop: '1.25rem', textAlign: 'center' }}
+        style={{ ...anim(400), color: '#565870', maxWidth: '36rem', marginTop: '1.75rem', textAlign: 'center' }}
       >
         I build products end-to-end — APIs, databases, interfaces.
         Fast, clean, and shipped.
@@ -95,6 +98,31 @@ export default function Hero() {
       {/* Code console */}
       <div style={{ ...anim(650), marginTop: '4rem', width: '100%', maxWidth: '40rem' }}>
         <CodeConsole />
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          bottom: '5rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '0.3rem',
+          animation: 'fadeIn 1s ease 1200ms both',
+        }}
+      >
+        <span className="font-mono" style={{ fontSize: '9px', color: '#2A2C3E', letterSpacing: '0.15em' }}>SCROLL</span>
+        <div style={{ position: 'relative', width: 1, height: 40, background: 'rgba(255,255,255,0.06)' }}>
+          <div style={{
+            position: 'absolute', top: 0, left: 0, width: '100%',
+            background: '#00D084',
+            animation: 'scrollLine 1.8s ease-in-out infinite',
+          }} />
+        </div>
       </div>
 
       {/* Tech strip — marquee */}
