@@ -15,24 +15,34 @@ export default function Reveal({ children, delay = 0, className = '' }: Props) {
     const el = ref.current
     if (!el) return
 
+    const show = () => {
+      el.style.transition = `opacity 0.6s ease ${delay}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms`
+      el.style.opacity = '1'
+      el.style.transform = 'translateY(0)'
+    }
+
+    // Start hidden
     el.style.opacity = '0'
-    el.style.clipPath = 'inset(0 0 100% 0)'
-    el.style.transform = 'translateY(12px)'
+    el.style.transform = 'translateY(20px)'
+
+    // Safety net: force-show after 1.5s regardless
+    const fallback = setTimeout(show, 1500 + delay)
 
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
-        el.style.transition = `opacity 0.55s ease ${delay}ms, clip-path 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms`
-        el.style.opacity = '1'
-        el.style.clipPath = 'inset(0 0 0% 0)'
-        el.style.transform = 'translateY(0)'
+        clearTimeout(fallback)
+        show()
         obs.disconnect()
       },
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
     )
 
     obs.observe(el)
-    return () => obs.disconnect()
+    return () => {
+      obs.disconnect()
+      clearTimeout(fallback)
+    }
   }, [delay])
 
   return (

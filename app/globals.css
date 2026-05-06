@@ -104,8 +104,3 @@ body {
   100% { top: 100%; }
 }
 
-/* Clip-path reveal for Reveal component */
-@keyframes clipReveal {
-  from { clip-path: inset(0 0 100% 0); opacity: 0; }
-  to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
-}
