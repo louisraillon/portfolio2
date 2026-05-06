@@ -1,4 +1,5 @@
 import CodeConsole from './CodeConsole'
+import Typewriter from './Typewriter'
 
 const anim = (delay: number) => ({
   animation: `fadeSlideUp 0.7s ease ${delay}ms both`,
@@ -28,8 +29,8 @@ export default function Hero() {
           textAlign: 'center',
         }}
       >
-        <span style={{ color: '#E2E4EE' }}>LMRaillon </span>
-        <span style={{ color: '#00D084' }}>Dev.com</span>
+        <Typewriter text="LMRaillon " speed={80} delay={300} triggerOnLoad style={{ color: '#E2E4EE' }} />
+        <Typewriter text="Dev.com" speed={80} delay={980} triggerOnLoad style={{ color: '#00D084' }} />
       </h1>
 
       {/* Role */}

@@ -5,6 +5,7 @@ import { projects, type Project } from '@/lib/projects'
 import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
 import Reveal from './Reveal'
+import Typewriter from './Typewriter'
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
@@ -23,13 +24,13 @@ export default function Projects() {
 
           <Reveal>
             <p className="mb-4 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
-              {'// selected_work'}
+              <Typewriter text="// selected_work" speed={55} />
             </p>
             <h2
               className="font-mono font-bold leading-tight"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#E2E4EE', textAlign: 'center' }}
             >
-              Things I&apos;ve built
+              <Typewriter text="Things I've built" speed={42} delay={300} />
             </h2>
             <p className="font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center', margin: '1.25rem auto 2.5rem' }}>
               A selection of projects — full-stack apps, APIs, and tools.

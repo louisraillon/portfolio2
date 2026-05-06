@@ -1,6 +1,7 @@
 'use client'
 
 import Reveal from './Reveal'
+import Typewriter from './Typewriter'
 
 export default function Contact() {
   return (
@@ -13,13 +14,13 @@ export default function Contact() {
 
         <Reveal>
           <p className="mb-5 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
-            {'// contact'}
+            <Typewriter text="// contact" speed={55} />
           </p>
           <h2
             className="font-mono font-bold leading-[1] tracking-tight"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: '#E2E4EE', textAlign: 'center' }}
           >
-            Get in touch.
+            <Typewriter text="Get in touch." speed={60} delay={250} />
           </h2>
           <p
             className="font-mono text-sm leading-relaxed"
