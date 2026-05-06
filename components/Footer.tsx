@@ -16,7 +16,7 @@ export default function Footer() {
       </p>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
         <a
-          href="https://github.com/louisraillon"
+          href="https://www.malt.fr/profile/louisraillon"
           target="_blank"
           rel="noopener noreferrer"
           className="font-mono text-[10px] transition-colors duration-150"
@@ -24,7 +24,7 @@ export default function Footer() {
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
         >
-          GitHub ↗
+          Malt ↗
         </a>
         <a
           href="https://linkedin.com/in/louisraillon"
