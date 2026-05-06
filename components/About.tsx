@@ -1,4 +1,11 @@
+import Counter from './Counter'
 import Reveal from './Reveal'
+
+const STATS = [
+  { to: 3, suffix: '+', label: 'years building' },
+  { to: 10, suffix: '+', label: 'projects shipped' },
+  { to: 8, suffix: '+', label: 'happy clients' },
+]
 
 export default function About() {
   return (
@@ -43,6 +50,37 @@ export default function About() {
               ))}
             </div>
 
+          </div>
+        </Reveal>
+
+        {/* Animated counters */}
+        <Reveal delay={150}>
+          <div
+            style={{
+              marginTop: '4rem',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              borderTop: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            {STATS.map(({ to, suffix, label }, i) => (
+              <div
+                key={label}
+                style={{
+                  padding: '2rem 1.5rem',
+                  borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  textAlign: 'center',
+                }}
+              >
+                <p
+                  className="font-mono font-bold"
+                  style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#00D084', lineHeight: 1 }}
+                >
+                  <Counter to={to} suffix={suffix} />
+                </p>
+                <p className="font-mono text-xs mt-2" style={{ color: '#565870' }}>{label}</p>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>

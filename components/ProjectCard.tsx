@@ -57,6 +57,22 @@ export default function ProjectCard({ project, index, onClick }: Props) {
       }}
       aria-label={`View ${project.title}`}
     >
+      {/* Scan line — animates top to bottom on hover */}
+      {hovered && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            height: 1,
+            background: 'linear-gradient(90deg, transparent, rgba(0,208,132,0.55), transparent)',
+            animation: 'scanLine 1.6s linear infinite',
+            pointerEvents: 'none',
+          }}
+        />
+      )}
+
       {/* Top-right arrow — appears on hover */}
       <div
         style={{

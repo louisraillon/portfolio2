@@ -1,9 +1,32 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+const LINKS = [
+  { label: 'Work', href: '#projects', id: 'projects' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
+]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState<string | null>(null)
+
+  useEffect(() => {
+    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean) as HTMLElement[]
+    if (sections.length === 0) return
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    )
+
+    sections.forEach((s) => obs.observe(s))
+    return () => obs.disconnect()
+  }, [])
 
   return (
     <>
@@ -25,18 +48,36 @@ export default function Nav() {
 
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
-            {[{ label: 'Work', href: '#projects' }, { label: 'Contact', href: '#contact' }].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="font-mono text-xs transition-colors duration-150"
-                style={{ color: '#565870' }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#E2E4EE')}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#565870')}
-              >
-                {label}
-              </a>
-            ))}
+            {LINKS.map(({ label, href, id }) => {
+              const isActive = active === id
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  className="font-mono text-xs transition-colors duration-150"
+                  style={{ color: isActive ? '#E2E4EE' : '#565870', position: 'relative' }}
+                  onMouseEnter={(e) => { if (!isActive) (e.target as HTMLElement).style.color = '#E2E4EE' }}
+                  onMouseLeave={(e) => { if (!isActive) (e.target as HTMLElement).style.color = '#565870' }}
+                >
+                  {label}
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        position: 'absolute',
+                        bottom: -2,
+                        left: 0,
+                        right: 0,
+                        height: 1,
+                        background: '#00D084',
+                        borderRadius: 1,
+                        animation: 'fadeIn 0.2s ease both',
+                      }}
+                    />
+                  )}
+                </a>
+              )
+            })}
           </div>
 
           {/* Mobile toggle */}
@@ -57,7 +98,6 @@ export default function Nav() {
               style={{
                 background: '#565870',
                 transform: open ? 'rotate(-45deg) translateY(-4px)' : 'none',
-                opacity: open ? 1 : 1,
               }}
             />
           </button>

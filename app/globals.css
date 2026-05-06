@@ -81,3 +81,28 @@ body {
   50%  { height: 100%; top: 0; }
   100% { height: 0%; top: 100%; }
 }
+
+/* Glitch effect for hero "Developer" */
+@keyframes glitch {
+  0%, 87%, 100% { color: #00D084; text-shadow: none; }
+  88%  { color: #00D084; text-shadow: 3px 0 #ff0044, -3px 0 #0044ff; }
+  89%  { color: #fff;    text-shadow: -2px 0 #ff0044, 2px 0 #0044ff; }
+  90%  { color: #00D084; text-shadow: none; }
+  92%  { color: #00D084; text-shadow: 1px 0 #0044ff; }
+  93%  { color: #00D084; text-shadow: none; }
+  95%  { color: #00D084; text-shadow: -1px 0 #ff0044; }
+  96%  { color: #00D084; text-shadow: none; }
+}
+.glitch { animation: glitch 6s infinite; }
+
+/* Scan line for ProjectCard hover */
+@keyframes scanLine {
+  0%   { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Clip-path reveal for Reveal component */
+@keyframes clipReveal {
+  from { clip-path: inset(0 0 100% 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
+}

@@ -30,6 +30,12 @@ export default function Contact() {
           </p>
         </Reveal>
 
+        <Reveal delay={120}>
+          <p className="font-mono text-xs" style={{ color: '#2A2C3E', marginBottom: '2rem', textAlign: 'center' }}>
+            {'< '}<Typewriter text="louisraillon1234@gmail.com" speed={32} />{' />'}
+          </p>
+        </Reveal>
+
         <Reveal delay={150}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
             <a

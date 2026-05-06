@@ -1,4 +1,5 @@
 import CodeConsole from './CodeConsole'
+import MatrixRain from './MatrixRain'
 import Typewriter from './Typewriter'
 
 
@@ -32,6 +33,9 @@ export default function Hero() {
         backgroundSize: '150px 150px',
       }}
     >
+      {/* Matrix rain background */}
+      <MatrixRain />
+
       {/* Vignette overlay */}
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -65,7 +69,9 @@ export default function Hero() {
         }}
       >
         <Typewriter text="Fullstack " speed={70} delay={300} triggerOnLoad style={{ color: '#E2E4EE' }} />
-        <Typewriter text="Developer" speed={70} delay={1000} triggerOnLoad style={{ color: '#00D084' }} />
+        <span className="glitch">
+          <Typewriter text="Developer" speed={70} delay={1000} triggerOnLoad style={{ color: '#00D084' }} />
+        </span>
       </h1>
 
       {/* Description */}

@@ -237,9 +237,9 @@ export default function ProjectModal({ project, onClose }: Props) {
             {/* Divider */}
             <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
 
-            {/* Stack */}
+            {/* Stack — staggered reveal */}
             <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              {project.stack.map((tech) => (
+              {project.stack.map((tech, i) => (
                 <span
                   key={tech}
                   className="rounded px-2.5 py-1 font-mono text-xs"
@@ -247,6 +247,8 @@ export default function ProjectModal({ project, onClose }: Props) {
                     background: 'rgba(0,208,132,0.08)',
                     border: '1px solid rgba(0,208,132,0.15)',
                     color: '#00D084',
+                    opacity: 0,
+                    animation: `fadeSlideUp 0.4s ease ${80 + i * 55}ms both`,
                   }}
                 >
                   {tech}
