@@ -18,7 +18,7 @@ export default function Nav() {
       >
         <div style={{ margin: '0 auto', maxWidth: '64rem', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem' }}>
           <a href="/" className="font-mono text-sm font-bold" style={{ color: '#00D084' }}>
-            LMR Dev
+            LMR <span style={{ color: '#E2E4EE' }}>Dev</span>
           </a>
 
           {/* Desktop */}
