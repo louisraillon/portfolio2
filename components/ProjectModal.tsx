@@ -103,7 +103,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                   gap: '0.4rem',
                 }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#00D084' }}>●</span>
-                  <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#565870', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#A0A3B1', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {project.live ?? `~/projects/${project.id}`}
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-                <span style={{ fontFamily: 'monospace', fontSize: '9px', color: '#2A2C3E' }}>
+                <span style={{ fontFamily: 'monospace', fontSize: '9px', color: '#A0A3B1' }}>
                   <span style={{ color: '#00D084' }}>~/projects/</span>{project.id}
                 </span>
                 {project.live && (
@@ -143,9 +143,9 @@ export default function ProjectModal({ project, onClose }: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    style={{ fontFamily: 'monospace', fontSize: '9px', color: '#565870', textDecoration: 'none' }}
+                    style={{ fontFamily: 'monospace', fontSize: '9px', color: '#A0A3B1', textDecoration: 'none' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#A0A3B1')}
                   >
                     ouvrir ↗
                   </a>
