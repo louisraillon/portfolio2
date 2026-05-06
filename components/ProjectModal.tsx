@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Project } from '@/lib/projects'
 
@@ -10,6 +10,10 @@ type Props = {
 }
 
 export default function ProjectModal({ project, onClose }: Props) {
+  const [imgError, setImgError] = useState(false)
+
+  useEffect(() => { setImgError(false) }, [project?.id])
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
@@ -97,6 +101,36 @@ export default function ProjectModal({ project, onClose }: Props) {
                 </div>
               </div>
             </div>
+
+            {/* Preview image */}
+            {project.image && (
+              <div
+                style={{
+                  marginBottom: '2rem',
+                  borderRadius: '0.75rem',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  aspectRatio: '16/9',
+                  background: '#161622',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                {!imgError ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
+                    // no preview available
+                  </span>
+                )}
+              </div>
+            )}
 
             {/* Title */}
             <h2
