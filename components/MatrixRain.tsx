@@ -23,21 +23,26 @@ export default function MatrixRain() {
     const drops: number[] = Array(cols).fill(0).map(() => Math.random() * -50)
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(5,5,8,0.04)'
+      ctx.fillStyle = 'rgba(5,5,8,0.07)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       ctx.font = `${fontSize}px monospace`
 
       drops.forEach((y, i) => {
         const char = chars[Math.floor(Math.random() * chars.length)]
-        const alpha = Math.random() * 0.25 + 0.03
-        ctx.fillStyle = `rgba(0,208,132,${alpha})`
+        // bright head char
+        if (Math.random() > 0.85) {
+          ctx.fillStyle = 'rgba(180,255,220,0.9)'
+        } else {
+          const alpha = Math.random() * 0.55 + 0.15
+          ctx.fillStyle = `rgba(0,208,132,${alpha})`
+        }
         ctx.fillText(char, i * fontSize, y * fontSize)
-        if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0
-        drops[i] += 0.5
+        if (y * fontSize > canvas.height && Math.random() > 0.965) drops[i] = 0
+        drops[i] += 0.65
       })
     }
 
-    const interval = setInterval(draw, 60)
+    const interval = setInterval(draw, 45)
     return () => {
       clearInterval(interval)
       window.removeEventListener('resize', resize)
@@ -51,7 +56,7 @@ export default function MatrixRain() {
       style={{
         position: 'absolute', inset: 0,
         width: '100%', height: '100%',
-        opacity: 0.5, pointerEvents: 'none',
+        opacity: 0.82, pointerEvents: 'none',
       }}
     />
   )

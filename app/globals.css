@@ -84,16 +84,19 @@ body {
 
 /* Glitch effect for hero "Developer" */
 @keyframes glitch {
-  0%, 87%, 100% { color: #00D084; text-shadow: none; }
-  88%  { color: #00D084; text-shadow: 3px 0 #ff0044, -3px 0 #0044ff; }
-  89%  { color: #fff;    text-shadow: -2px 0 #ff0044, 2px 0 #0044ff; }
-  90%  { color: #00D084; text-shadow: none; }
-  92%  { color: #00D084; text-shadow: 1px 0 #0044ff; }
-  93%  { color: #00D084; text-shadow: none; }
-  95%  { color: #00D084; text-shadow: -1px 0 #ff0044; }
-  96%  { color: #00D084; text-shadow: none; }
+  0%, 80%, 100% { color: #00D084; text-shadow: none; }
+  81%  { color: #00D084; text-shadow: 5px 0 #ff0044, -5px 0 #0044ff; }
+  82%  { color: #c0ffd8;  text-shadow: -4px 0 #ff0044, 4px 0 #00ffff; }
+  83%  { color: #00D084; text-shadow: none; }
+  85%  { color: #00D084; text-shadow: 6px 0 #0044ff, -2px 0 #ff0044; }
+  86%  { color: #fff;    text-shadow: -3px 0 #ff0044; }
+  87%  { color: #00D084; text-shadow: none; }
+  90%  { color: #00D084; text-shadow: 3px 0 #ff0044; }
+  91%  { color: #00D084; text-shadow: none; }
+  94%  { color: #00D084; text-shadow: -4px 0 #0044ff, 4px 0 #ff0044; }
+  95%  { color: #00D084; text-shadow: none; }
 }
-.glitch { animation: glitch 6s infinite; }
+.glitch { animation: glitch 4s infinite; }
 
 /* Scan line for ProjectCard hover */
 @keyframes scanLine {
