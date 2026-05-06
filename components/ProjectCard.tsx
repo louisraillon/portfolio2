@@ -112,7 +112,17 @@ export default function ProjectCard({ project, index, onClick }: Props) {
         </h3>
 
         {/* Description */}
-        <p className="font-mono text-xs leading-relaxed mb-6" style={{ color: '#565870', textAlign: 'center' }}>
+        <p
+          className="font-mono text-xs leading-relaxed mb-6"
+          style={{
+            color: '#565870',
+            textAlign: 'center',
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {project.description}
         </p>
 

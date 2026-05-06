@@ -1,4 +1,8 @@
 // lib/projects.ts
+export function safeHref(url: string | undefined): string | undefined {
+  if (!url) return undefined
+  return /^https?:\/\//.test(url) ? url : undefined
+}
 export type Project = {
   id: string
   title: string

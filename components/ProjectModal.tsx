@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Project } from '@/lib/projects'
+import { safeHref } from '@/lib/projects'
 
 type Props = {
   project: Project | null
@@ -104,7 +105,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                 }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#00D084' }}>●</span>
                   <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#A0A3B1', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {project.live ?? `~/projects/${project.id}`}
+                    {safeHref(project.live) ?? `~/projects/${project.id}`}
                   </span>
                 </div>
               </div>
@@ -137,9 +138,9 @@ export default function ProjectModal({ project, onClose }: Props) {
                 <span style={{ fontFamily: 'monospace', fontSize: '9px', color: '#A0A3B1' }}>
                   <span style={{ color: '#00D084' }}>~/projects/</span>{project.id}
                 </span>
-                {project.live && (
+                {safeHref(project.live) && (
                   <a
-                    href={project.live}
+                    href={safeHref(project.live)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -257,10 +258,10 @@ export default function ProjectModal({ project, onClose }: Props) {
             <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
 
             {/* Links */}
-            {project.live && (
+            {safeHref(project.live) && (
               <div style={{ marginTop: '2rem' }}>
                 <a
-                  href={project.live}
+                  href={safeHref(project.live)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded font-mono text-sm transition-opacity hover:opacity-85"

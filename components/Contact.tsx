@@ -37,7 +37,7 @@ export default function Contact() {
               className="rounded font-mono text-sm font-bold transition-opacity hover:opacity-85 active:scale-[0.98]"
               style={{ background: '#00D084', color: '#080810', padding: '0.75rem 1.75rem' }}
             >
-              {'>'} louisraillon61@gmail.com
+              {'>'} Send me an email
             </a>
             <a
               href="https://github.com/louisraillon"
