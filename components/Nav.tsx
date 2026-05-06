@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 
 const LINKS = [
+  { label: 'About', href: '#about', id: 'about' },
   { label: 'Work', href: '#projects', id: 'projects' },
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
@@ -112,6 +113,7 @@ export default function Nav() {
         >
           <div className="flex flex-col items-center gap-6">
             {[
+              { label: '// about', href: '#about' },
               { label: '// work', href: '#projects' },
               { label: '// contact', href: '#contact' },
             ].map((l, i) => (

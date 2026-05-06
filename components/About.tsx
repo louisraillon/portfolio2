@@ -10,6 +10,7 @@ const STATS = [
 export default function About() {
   return (
     <section
+      id="about"
       className="flex flex-col items-center"
       style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '7rem 1.5rem' }}
     >
