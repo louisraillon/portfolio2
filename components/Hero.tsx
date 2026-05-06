@@ -25,7 +25,7 @@ export default function Hero() {
           linear-gradient(rgba(0,208,132,0.22) 1px, transparent 1px),
           linear-gradient(90deg, rgba(0,208,132,0.22) 1px, transparent 1px)
         `,
-        backgroundSize: '80px 80px',
+        backgroundSize: '150px 150px',
       }}
     >
       {/* Vignette overlay */}
