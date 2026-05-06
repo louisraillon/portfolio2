@@ -31,7 +31,7 @@ export default function Hero() {
       {/* Vignette overlay */}
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, #050508 100%)',
+        background: 'radial-gradient(ellipse 50% 45% at 50% 50%, transparent 0%, #050508 100%)',
       }} />
       {/* Status badge */}
       <div style={{ ...anim(100), marginBottom: '3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
