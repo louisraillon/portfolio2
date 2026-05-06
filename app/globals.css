@@ -26,11 +26,11 @@ html { scroll-behavior: smooth; }
 /* Checkerboard background */
 body {
   background-color: #080810;
-  background-image: repeating-conic-gradient(
-    #1A1A36 0% 25%,
-    #080810 0% 50%
-  );
+  background-image:
+    linear-gradient(45deg, #1A1A36 25%, transparent 25%, transparent 75%, #1A1A36 75%),
+    linear-gradient(45deg, #1A1A36 25%, transparent 25%, transparent 75%, #1A1A36 75%);
   background-size: 56px 56px;
+  background-position: 0 0, 28px 28px;
 }
 
 @keyframes pulse-dot {
