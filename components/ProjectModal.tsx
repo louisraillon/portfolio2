@@ -86,9 +86,9 @@ export default function ProjectModal({ project, onClose }: Props) {
               style={{ background: '#161622', border: '1px solid rgba(255,255,255,0.06)' }}
             >
               <div className="flex gap-1.5 mb-3">
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FF5F57' }} />
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FEBC2E' }} />
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#28C840' }} />
               </div>
               <p className="font-mono text-[11px]" style={{ color: '#2A2C3E' }}>
                 <span style={{ color: '#00D084' }}>~/projects/</span>
@@ -101,7 +101,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               className="font-mono font-bold leading-tight"
               style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', color: '#E2E4EE' }}
             >
-              {project.title}
+              <span style={{ color: '#00D084' }}>{'> '}</span>{project.title}
             </h2>
 
             {/* Description */}
