@@ -23,8 +23,8 @@ export default function Hero() {
           textAlign: 'center',
         }}
       >
-        <span style={{ color: '#E2E4EE' }}>Louis </span>
-        <span style={{ color: '#00D084' }}>Raillon.</span>
+        <span style={{ color: '#E2E4EE' }}>LMRaillon </span>
+        <span style={{ color: '#00D084' }}>Dev.com</span>
       </h1>
 
       {/* Role */}
