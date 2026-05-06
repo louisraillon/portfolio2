@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { headers } from 'next/headers'
 import CursorGlow from '@/components/CursorGlow'
 import ScrollProgress from '@/components/ScrollProgress'
 import './globals.css'
@@ -26,10 +27,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // nonce set by middleware — Next.js App Router applies it automatically to inline hydration scripts
+  const nonce = (await headers()).get('x-nonce') ?? ''
+
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`} style={{ colorScheme: 'dark' }}>
-      <body style={{ color: '#E2E4EE', fontFamily: 'var(--font-mono), monospace', overflowX: 'hidden' }}>
+      <body
+        nonce={nonce}
+        style={{ color: '#E2E4EE', fontFamily: 'var(--font-mono), monospace', overflowX: 'hidden' }}
+      >
         <ScrollProgress />
         <CursorGlow />
         {children}
