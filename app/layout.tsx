@@ -7,11 +7,11 @@ const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', disp
 
 export const metadata: Metadata = {
   icons: { icon: '/favicon.svg', shortcut: '/favicon.svg' },
-  title: 'Louis Raillon — Fullstack Developer',
-  description: 'Fullstack developer based in Paris. I build fast, clean, deployed products.',
+  title: 'Louis Minh Raillon — Fullstack Developer',
+  description: 'Fullstack developer based in Hanoi, Vietnam. I build fast, clean, deployed products.',
   openGraph: {
-    title: 'Louis Raillon — Fullstack Developer',
-    description: 'Fullstack developer based in Paris. I build fast, clean, deployed products.',
+    title: 'Louis Minh Raillon — Fullstack Developer',
+    description: 'Fullstack developer based in Hanoi, Vietnam. I build fast, clean, deployed products.',
     url: 'https://lmraillondev.com',
     siteName: 'LMRaillon Dev',
     locale: 'en_US',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Louis Raillon — Fullstack Developer',
-    description: 'Fullstack developer based in Paris. I build fast, clean, deployed products.',
+    title: 'Louis Minh Raillon — Fullstack Developer',
+    description: 'Fullstack developer based in Hanoi, Vietnam. I build fast, clean, deployed products.',
   },
 }
 

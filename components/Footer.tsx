@@ -12,7 +12,7 @@ export default function Footer() {
       }}
     >
       <p className="font-mono text-[10px]" style={{ color: '#565870' }}>
-        © {new Date().getFullYear()} Louis Raillon
+        © {new Date().getFullYear()} Louis Minh Raillon
       </p>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
         <a

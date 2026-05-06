@@ -51,7 +51,7 @@ export default function Hero() {
         className="font-mono text-sm"
         style={{ ...anim(150), color: '#565870', marginBottom: '1rem', letterSpacing: '0.1em' }}
       >
-        <span style={{ color: '#2A2C3E' }}>{'// '}</span>Louis Raillon · Paris, France
+        <span style={{ color: '#2A2C3E' }}>{'// '}</span>Louis Minh Raillon · Hanoi, Vietnam
       </p>
 
       {/* Headline — role first, clear */}

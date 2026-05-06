@@ -21,7 +21,7 @@ export default function About() {
                 <span style={{ color: '#00D084' }}>{'> '}</span>Who I am
               </h2>
               <p className="font-mono text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9', marginBottom: '1.25rem' }}>
-                I&apos;m a fullstack developer based in Paris. I design and ship complete products — from database schema to deployed UI.
+                I&apos;m a fullstack developer based in Hanoi, Vietnam. I design and ship complete products — from database schema to deployed UI.
               </p>
               <p className="font-mono text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9' }}>
                 I work with startups and businesses that need things built right and fast. Currently open to freelance projects.
@@ -33,7 +33,7 @@ export default function About() {
               {[
                 { label: 'Focus', value: 'Full-stack web development' },
                 { label: 'Stack', value: 'Node.js · React · TypeScript · SQL' },
-                { label: 'Location', value: 'Paris, France' },
+                { label: 'Location', value: 'Hanoi, Vietnam' },
                 { label: 'Status', value: 'Open to freelance' },
               ].map(({ label, value }) => (
                 <div key={label} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.25rem' }}>
