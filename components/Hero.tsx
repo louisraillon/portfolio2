@@ -20,6 +20,16 @@ export default function Hero() {
         minHeight: '100dvh',
         padding: '7rem 1.5rem 6rem',
         textAlign: 'center',
+        backgroundColor: '#050508',
+        backgroundImage: `
+          linear-gradient(rgba(0,208,132,0.04) 8px, transparent 8px),
+          linear-gradient(90deg, rgba(0,208,132,0.04) 8px, transparent 8px),
+          linear-gradient(rgba(0,208,132,0.1) 3px, transparent 3px),
+          linear-gradient(90deg, rgba(0,208,132,0.1) 3px, transparent 3px),
+          linear-gradient(rgba(0,208,132,0.45) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,208,132,0.45) 1px, transparent 1px)
+        `,
+        backgroundSize: '150px 150px',
       }}
     >
       {/* Vignette overlay */}

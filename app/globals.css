@@ -23,17 +23,8 @@
 
 html { scroll-behavior: smooth; }
 
-/* Green grid background */
 body {
   background-color: #050508;
-  background-image:
-    linear-gradient(rgba(0,208,132,0.04) 8px, transparent 8px),
-    linear-gradient(90deg, rgba(0,208,132,0.04) 8px, transparent 8px),
-    linear-gradient(rgba(0,208,132,0.1) 3px, transparent 3px),
-    linear-gradient(90deg, rgba(0,208,132,0.1) 3px, transparent 3px),
-    linear-gradient(rgba(0,208,132,0.45) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,208,132,0.45) 1px, transparent 1px);
-  background-size: 150px 150px;
 }
 
 @keyframes pulse-dot {
