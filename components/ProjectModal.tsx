@@ -106,13 +106,22 @@ export default function ProjectModal({ project, onClose }: Props) {
               <span style={{ color: '#00D084' }}>{'> '}</span>{project.title}
             </h2>
 
+            {/* Divider */}
+            <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
+
             {/* Description */}
-            <p className="mt-8 font-body text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '2' }}>
+            <p
+              className="font-body text-sm"
+              style={{ color: '#565870', lineHeight: '2', marginTop: '2rem' }}
+            >
               {project.description}
             </p>
 
+            {/* Divider */}
+            <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
+
             {/* Stack */}
-            <div className="mt-10 flex flex-wrap gap-2">
+            <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {project.stack.map((tech) => (
                 <span
                   key={tech}
@@ -128,8 +137,11 @@ export default function ProjectModal({ project, onClose }: Props) {
               ))}
             </div>
 
+            {/* Divider */}
+            <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
+
             {/* Links */}
-            <div className="mt-12 flex flex-wrap gap-3">
+            <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
               {project.github && (
                 <a
                   href={project.github}
