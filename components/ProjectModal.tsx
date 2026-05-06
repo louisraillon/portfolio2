@@ -9,6 +9,8 @@ type Props = {
   onClose: () => void
 }
 
+const DRAWER_WIDTH = 'min(480px, 92vw)'
+
 export default function ProjectModal({ project, onClose }: Props) {
   const [imgError, setImgError] = useState(false)
 
@@ -29,18 +31,73 @@ export default function ProjectModal({ project, onClose }: Props) {
     <AnimatePresence>
       {project && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop — click closes */}
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25 }}
             onClick={onClose}
             className="fixed inset-0 z-40"
-            style={{ background: 'rgba(8,8,14,0.8)', backdropFilter: 'blur(4px)' }}
+            style={{ background: 'rgba(8,8,14,0.75)', backdropFilter: 'blur(2px)' }}
             aria-hidden="true"
           />
+
+          {/* Left preview panel */}
+          <motion.div
+            key="preview"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
+            onClick={onClose}
+            className="fixed bottom-0 left-0 top-0 z-40 hidden md:block"
+            style={{ right: DRAWER_WIDTH, overflow: 'hidden', cursor: 'pointer' }}
+          >
+            {/* Screenshot */}
+            {project.image && !imgError ? (
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                style={{
+                  position: 'absolute', inset: 0,
+                  width: '100%', height: '100%',
+                  objectFit: 'cover',
+                  opacity: 0.55,
+                }}
+                onError={() => setImgError(true)}
+              />
+            ) : null}
+
+            {/* Gradient overlays */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to right, rgba(8,8,14,0.6) 0%, rgba(8,8,14,0.1) 60%, rgba(8,8,14,0.5) 100%)',
+            }} />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to top, rgba(8,8,14,0.85) 0%, transparent 45%)',
+            }} />
+
+            {/* Bottom label */}
+            <div style={{
+              position: 'absolute', bottom: '2.5rem', left: '2.5rem',
+              display: 'flex', flexDirection: 'column', gap: '0.5rem',
+            }}>
+              <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#00D084', letterSpacing: '0.1em' }}>
+                ~/projects/{project.id}
+              </span>
+              <span style={{ fontFamily: 'monospace', fontSize: '1.5rem', fontWeight: 700, color: '#E2E4EE' }}>
+                {project.title}
+              </span>
+              {!project.image || imgError ? (
+                <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
+                  // no preview available
+                </span>
+              ) : null}
+            </div>
+          </motion.div>
 
           {/* Drawer */}
           <motion.aside
@@ -51,7 +108,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             transition={{ type: 'spring', stiffness: 120, damping: 18 }}
             className="fixed right-0 top-0 z-50 flex h-full flex-col overflow-y-auto"
             style={{
-              width: 'min(480px, 92vw)',
+              width: DRAWER_WIDTH,
               background: '#0E0E1A',
               borderLeft: '1px solid rgba(255,255,255,0.07)',
               padding: '2rem 1.75rem',
@@ -84,7 +141,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               </button>
             </div>
 
-            {/* Terminal preview bar */}
+            {/* Terminal bar */}
             <div
               className="mb-10 rounded-lg p-4"
               style={{ background: '#161622', border: '1px solid rgba(255,255,255,0.06)' }}
@@ -100,46 +157,6 @@ export default function ProjectModal({ project, onClose }: Props) {
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#28C840' }} />
                 </div>
               </div>
-            </div>
-
-            {/* Screenshot preview */}
-            <div
-              style={{
-                marginBottom: '2rem',
-                borderRadius: '0.75rem',
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.07)',
-                aspectRatio: '16/9',
-                background: '#161622',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              {project.image && !imgError ? (
-                <img
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                  <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
-                    // no preview available
-                  </span>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ fontFamily: 'monospace', fontSize: '10px', color: '#00D084', textDecoration: 'none' }}
-                    >
-                      voir le code ↗
-                    </a>
-                  )}
-                </div>
-              )}
             </div>
 
             {/* Title */}
