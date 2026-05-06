@@ -52,50 +52,105 @@ export default function ProjectModal({ project, onClose }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, delay: 0.05 }}
             onClick={onClose}
-            className="fixed bottom-0 left-0 top-0 z-40 hidden md:block"
-            style={{ right: DRAWER_WIDTH, overflow: 'hidden', cursor: 'pointer' }}
+            className="fixed bottom-0 left-0 top-0 z-40 hidden md:flex"
+            style={{
+              right: DRAWER_WIDTH,
+              cursor: 'pointer',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(8,8,14,0.82)',
+              backdropFilter: 'blur(3px)',
+              padding: '3rem',
+            }}
           >
-            {/* Screenshot */}
-            {project.image && !imgError ? (
-              <img
-                src={project.image}
-                alt={`${project.title} preview`}
-                style={{
-                  position: 'absolute', inset: 0,
-                  width: '100%', height: '100%',
-                  objectFit: 'cover',
-                  opacity: 0.55,
-                }}
-                onError={() => setImgError(true)}
-              />
-            ) : null}
+            {/* Browser/terminal frame */}
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '640px',
+                borderRadius: '0.75rem',
+                overflow: 'hidden',
+                border: '1px solid rgba(255,255,255,0.08)',
+                boxShadow: '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)',
+                background: '#0E0E1A',
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Title bar */}
+              <div style={{
+                background: '#161622',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                padding: '0.65rem 1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+              }}>
+                {/* Dots */}
+                <div style={{ display: 'flex', gap: '0.375rem', flexShrink: 0 }}>
+                  <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF5F57', display: 'block' }} />
+                  <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FEBC2E', display: 'block' }} />
+                  <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#28C840', display: 'block' }} />
+                </div>
+                {/* URL bar */}
+                <div style={{
+                  flex: 1,
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: '0.3rem',
+                  padding: '0.2rem 0.6rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#00D084' }}>●</span>
+                  <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#565870', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {project.live ?? `~/projects/${project.id}`}
+                  </span>
+                </div>
+              </div>
 
-            {/* Gradient overlays */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to right, rgba(8,8,14,0.6) 0%, rgba(8,8,14,0.1) 60%, rgba(8,8,14,0.5) 100%)',
-            }} />
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to top, rgba(8,8,14,0.85) 0%, transparent 45%)',
-            }} />
+              {/* Screenshot content */}
+              <div style={{ aspectRatio: '16/9', background: '#080810', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {project.image && !imgError ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
+                    // no preview available
+                  </span>
+                )}
+              </div>
 
-            {/* Bottom label */}
-            <div style={{
-              position: 'absolute', bottom: '2.5rem', left: '2.5rem',
-              display: 'flex', flexDirection: 'column', gap: '0.5rem',
-            }}>
-              <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#00D084', letterSpacing: '0.1em' }}>
-                ~/projects/{project.id}
-              </span>
-              <span style={{ fontFamily: 'monospace', fontSize: '1.5rem', fontWeight: 700, color: '#E2E4EE' }}>
-                {project.title}
-              </span>
-              {!project.image || imgError ? (
-                <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
-                  // no preview available
+              {/* Status bar */}
+              <div style={{
+                background: '#161622',
+                borderTop: '1px solid rgba(255,255,255,0.06)',
+                padding: '0.4rem 1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}>
+                <span style={{ fontFamily: 'monospace', fontSize: '9px', color: '#2A2C3E' }}>
+                  <span style={{ color: '#00D084' }}>~/projects/</span>{project.id}
                 </span>
-              ) : null}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    style={{ fontFamily: 'monospace', fontSize: '9px', color: '#565870', textDecoration: 'none' }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
+                  >
+                    ouvrir ↗
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
 
