@@ -1,9 +1,6 @@
 import CodeConsole from './CodeConsole'
 import Typewriter from './Typewriter'
 
-const diamondGrid = `url("data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><path d="M60 0 L120 60 L60 120 L0 60 Z" fill="none" stroke="rgba(0,208,132,0.28)" stroke-width="1.5"/></svg>'
-)}")`
 
 const TECH = [
   'Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Express',
@@ -24,8 +21,11 @@ export default function Hero() {
         padding: '7rem 1.5rem 6rem',
         textAlign: 'center',
         backgroundColor: '#050508',
-        backgroundImage: diamondGrid,
-        backgroundSize: '120px 120px',
+        backgroundImage: `
+          linear-gradient(rgba(0,208,132,0.22) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,208,132,0.22) 1px, transparent 1px)
+        `,
+        backgroundSize: '80px 80px',
       }}
     >
       {/* Vignette overlay */}
