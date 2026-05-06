@@ -257,25 +257,8 @@ export default function ProjectModal({ project, onClose }: Props) {
             <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }} />
 
             {/* Links */}
-            <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded font-mono text-sm transition-colors duration-150"
-                  style={{
-                    padding: '0.5rem 1.25rem',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    color: '#565870',
-                  }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
-                >
-                  GitHub ↗
-                </a>
-              )}
-              {project.live && (
+            {project.live && (
+              <div style={{ marginTop: '2rem' }}>
                 <a
                   href={project.live}
                   target="_blank"
@@ -289,8 +272,8 @@ export default function ProjectModal({ project, onClose }: Props) {
                 >
                   Live ↗
                 </a>
-              )}
-            </div>
+              </div>
+            )}
           </motion.aside>
         </>
       )}
