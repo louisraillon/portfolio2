@@ -45,7 +45,7 @@ export default function Projects() {
           </Reveal>
 
           {/* Rest */}
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div style={{ marginTop: '1.5rem', display: 'grid', gap: '1.5rem', gridTemplateColumns: 'repeat(2, 1fr)' }}>
             {rest.map((project, i) => (
               <Reveal key={project.id} delay={i * 100}>
                 <ProjectCard project={project} index={i + 1} onClick={setSelected} />

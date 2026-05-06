@@ -64,19 +64,6 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        {/* Footer */}
-        <div
-          className="mt-20 flex items-center justify-between"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.5rem' }}
-        >
-          <p className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
-            © {new Date().getFullYear()} Louis Raillon
-          </p>
-          <p className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
-            Paris, France
-          </p>
-        </div>
-
       </div>
     </section>
   )
