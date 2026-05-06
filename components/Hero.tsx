@@ -15,8 +15,23 @@ export default function Hero() {
   return (
     <section
       className="relative flex flex-col items-center justify-center"
-      style={{ minHeight: '100dvh', padding: '7rem 1.5rem 6rem', textAlign: 'center' }}
+      style={{
+        minHeight: '100dvh',
+        padding: '7rem 1.5rem 6rem',
+        textAlign: 'center',
+        backgroundColor: '#050508',
+        backgroundImage: `
+          linear-gradient(rgba(0,208,132,0.18) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,208,132,0.18) 1px, transparent 1px)
+        `,
+        backgroundSize: '44px 44px',
+      }}
     >
+      {/* Vignette overlay */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, #050508 100%)',
+      }} />
       {/* Status badge */}
       <div style={{ ...anim(100), marginBottom: '3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
         <span className="pulse h-2 w-2 rounded-full" style={{ background: '#00D084' }} aria-hidden="true" />
