@@ -82,7 +82,7 @@ export default function ProjectModal({ project, onClose }: Props) {
 
             {/* Terminal preview bar */}
             <div
-              className="mb-6 rounded-lg p-4"
+              className="mb-10 rounded-lg p-4"
               style={{ background: '#161622', border: '1px solid rgba(255,255,255,0.06)' }}
             >
               <div className="flex items-center justify-between">
@@ -107,12 +107,12 @@ export default function ProjectModal({ project, onClose }: Props) {
             </h2>
 
             {/* Description */}
-            <p className="mt-6 font-body text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9' }}>
+            <p className="mt-8 font-body text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '2' }}>
               {project.description}
             </p>
 
             {/* Stack */}
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-10 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
@@ -129,7 +129,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             </div>
 
             {/* Links */}
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap gap-3">
               {project.github && (
                 <a
                   href={project.github}
