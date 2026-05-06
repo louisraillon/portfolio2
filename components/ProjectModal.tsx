@@ -66,8 +66,8 @@ export default function ProjectModal({ project, onClose }: Props) {
             {/* Browser/terminal frame */}
             <div
               style={{
-                width: '100%',
-                maxWidth: '640px',
+                width: '90%',
+                maxWidth: '820px',
                 borderRadius: '0.75rem',
                 overflow: 'hidden',
                 border: '1px solid rgba(255,255,255,0.08)',

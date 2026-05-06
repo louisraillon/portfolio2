@@ -34,7 +34,7 @@ export const projects: Project[] = [
     live: 'https://zenith1.lmraillondev.com',
     github: 'https://github.com/louisraillon/zenith-hanoi',
     image: '/images/zenith.png',
-    featured: true,
+    featured: false,
   },
   {
     id: 'tamcoc',
@@ -46,6 +46,6 @@ export const projects: Project[] = [
     live: 'https://littletamcoc.lmraillondev.com',
     github: 'https://github.com/louisraillon/little-tam-coc-resort-site',
     image: '/images/tamcoc.png',
-    featured: true,
+    featured: false,
   },
 ]
