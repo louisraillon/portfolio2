@@ -86,8 +86,8 @@ export default function Hero() {
           {[...TECH, ...TECH].map((t, i) => (
             <span
               key={i}
-              className="font-mono text-[11px]"
-              style={{ color: '#565870', padding: '0 2rem', whiteSpace: 'nowrap', flexShrink: 0 }}
+              className="font-mono text-sm font-bold"
+              style={{ color: '#E2E4EE', padding: '0 2rem', whiteSpace: 'nowrap', flexShrink: 0 }}
             >
               <span style={{ color: '#00D084', marginRight: '0.5rem' }}>›</span>{t}
             </span>
