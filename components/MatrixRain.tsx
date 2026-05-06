@@ -22,14 +22,21 @@ export default function MatrixRain() {
     const cols = Math.floor(canvas.width / fontSize)
     const drops: number[] = Array(cols).fill(0).map(() => Math.random() * -50)
 
-    const draw = () => {
+    let rafId = 0
+    let lastTime = 0
+    const INTERVAL = 45 // ms between frames — ~22fps, enough for matrix effect
+
+    const draw = (now: number) => {
+      rafId = requestAnimationFrame(draw)
+      if (now - lastTime < INTERVAL) return
+      lastTime = now
+
       ctx.fillStyle = 'rgba(5,5,8,0.07)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       ctx.font = `${fontSize}px monospace`
 
       drops.forEach((y, i) => {
         const char = chars[Math.floor(Math.random() * chars.length)]
-        // bright head char
         if (Math.random() > 0.85) {
           ctx.fillStyle = 'rgba(180,255,220,0.9)'
         } else {
@@ -42,9 +49,23 @@ export default function MatrixRain() {
       })
     }
 
-    const interval = setInterval(draw, 45)
+    // Pause when tab hidden — saves CPU/battery
+    const handleVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(rafId)
+        rafId = 0
+      } else {
+        lastTime = 0
+        rafId = requestAnimationFrame(draw)
+      }
+    }
+
+    rafId = requestAnimationFrame(draw)
+    document.addEventListener('visibilitychange', handleVisibility)
+
     return () => {
-      clearInterval(interval)
+      cancelAnimationFrame(rafId)
+      document.removeEventListener('visibilitychange', handleVisibility)
       window.removeEventListener('resize', resize)
     }
   }, [])

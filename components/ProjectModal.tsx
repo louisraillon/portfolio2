@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Project } from '@/lib/projects'
 import { safeHref } from '@/lib/projects'
@@ -111,18 +112,23 @@ export default function ProjectModal({ project, onClose }: Props) {
               </div>
 
               {/* Screenshot content */}
-              <div style={{ aspectRatio: '16/9', background: '#080810', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'relative', aspectRatio: '16/9', background: '#080810', overflow: 'hidden' }}>
                 {project.image && !imgError ? (
-                  <img
+                  <Image
                     src={project.image}
                     alt={`${project.title} preview`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 820px"
+                    style={{ objectFit: 'cover' }}
                     onError={() => setImgError(true)}
+                    priority={false}
                   />
                 ) : (
-                  <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
-                    // no preview available
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                    <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
+                      // no preview available
+                    </span>
+                  </div>
                 )}
               </div>
 

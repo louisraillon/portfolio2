@@ -1,11 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { projects, type Project } from '@/lib/projects'
 import ProjectCard from './ProjectCard'
-import ProjectModal from './ProjectModal'
 import Reveal from './Reveal'
 import Typewriter from './Typewriter'
+
+// Framer Motion is heavy — only load when modal is first opened
+const ProjectModal = dynamic(() => import('./ProjectModal'), { ssr: false })
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
