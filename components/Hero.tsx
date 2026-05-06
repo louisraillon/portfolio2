@@ -104,10 +104,7 @@ export default function Hero() {
       <div
         aria-hidden="true"
         style={{
-          position: 'absolute',
-          bottom: '5rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          marginTop: '3rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
