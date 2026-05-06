@@ -31,7 +31,7 @@ export default function Projects() {
             Things I&apos;ve built
           </h2>
 
-          <p className="font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center', margin: '1.25rem auto 0' }}>
+          <p className="font-mono text-sm" style={{ color: '#565870', maxWidth: '32rem', textAlign: 'center', margin: '1.25rem auto 2.5rem' }}>
             A selection of projects — full-stack apps, APIs, and tools.
           </p>
 
