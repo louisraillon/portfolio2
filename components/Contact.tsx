@@ -33,7 +33,7 @@ export default function Contact() {
         <Reveal delay={150}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
             <a
-              href="mailto:louisraillon61@gmail.com"
+              href="mailto:louisraillon1234@gmail.com"
               className="rounded font-mono text-sm font-bold transition-opacity hover:opacity-85 active:scale-[0.98]"
               style={{ background: '#00D084', color: '#080810', padding: '0.75rem 1.75rem' }}
             >
