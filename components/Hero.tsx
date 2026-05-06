@@ -1,6 +1,12 @@
 import CodeConsole from './CodeConsole'
 import Typewriter from './Typewriter'
 
+const TECH = [
+  'Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Express',
+  'Docker', 'Redis', 'Prisma', 'GraphQL', 'MongoDB', 'Python',
+  'Tailwind CSS', 'Git', 'AWS', 'Vercel', 'REST API', 'Supabase',
+]
+
 const anim = (delay: number) => ({
   animation: `fadeSlideUp 0.7s ease ${delay}ms both`,
 })
@@ -71,16 +77,22 @@ export default function Hero() {
         <CodeConsole />
       </div>
 
-      {/* Tech strip */}
+      {/* Tech strip — marquee */}
       <div
         className="absolute bottom-0 left-0 right-0"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0 2rem', padding: '1.25rem 1.5rem', animation: 'fadeIn 1s ease 800ms both' }}
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden', padding: '0.9rem 0', animation: 'fadeIn 1s ease 800ms both' }}
       >
-        {['Next.js', 'TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Express'].map((t) => (
-          <span key={t} className="font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
-            {t}
-          </span>
-        ))}
+        <div className="marquee-track">
+          {[...TECH, ...TECH].map((t, i) => (
+            <span
+              key={i}
+              className="font-mono text-[11px]"
+              style={{ color: '#565870', padding: '0 2rem', whiteSpace: 'nowrap', flexShrink: 0 }}
+            >
+              <span style={{ color: '#00D084', marginRight: '0.5rem' }}>›</span>{t}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   )
