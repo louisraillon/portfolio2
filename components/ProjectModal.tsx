@@ -10,9 +10,9 @@ type Props = {
 }
 
 export default function ProjectModal({ project, onClose }: Props) {
-  const [imgError, setImgError] = useState(false)
+  const [iframeBlocked, setIframeBlocked] = useState(false)
 
-  useEffect(() => { setImgError(false) }, [project?.id])
+  useEffect(() => { setIframeBlocked(false) }, [project?.id])
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -102,35 +102,74 @@ export default function ProjectModal({ project, onClose }: Props) {
               </div>
             </div>
 
-            {/* Preview image */}
-            {project.image && (
-              <div
-                style={{
-                  marginBottom: '2rem',
-                  borderRadius: '0.75rem',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  aspectRatio: '16/9',
-                  background: '#161622',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {!imgError ? (
-                  <img
-                    src={project.image}
-                    alt={`${project.title} preview`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    onError={() => setImgError(true)}
+            {/* Live preview */}
+            <div
+              style={{
+                marginBottom: '2rem',
+                borderRadius: '0.75rem',
+                overflow: 'hidden',
+                border: '1px solid rgba(255,255,255,0.07)',
+                aspectRatio: '16/9',
+                background: '#161622',
+                position: 'relative',
+              }}
+            >
+              {project.live && !iframeBlocked ? (
+                <>
+                  <iframe
+                    src={project.live}
+                    title={`${project.title} preview`}
+                    sandbox="allow-scripts allow-same-origin"
+                    style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+                    onError={() => setIframeBlocked(true)}
+                    onLoad={(e) => {
+                      try {
+                        const doc = (e.currentTarget as HTMLIFrameElement).contentDocument
+                        if (!doc) setIframeBlocked(true)
+                      } catch {
+                        setIframeBlocked(true)
+                      }
+                    }}
                   />
-                ) : (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      position: 'absolute',
+                      bottom: '0.75rem',
+                      right: '0.75rem',
+                      fontFamily: 'monospace',
+                      fontSize: '10px',
+                      color: '#00D084',
+                      background: 'rgba(8,8,14,0.85)',
+                      padding: '0.3rem 0.6rem',
+                      borderRadius: '0.25rem',
+                      border: '1px solid rgba(0,208,132,0.2)',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    ouvrir ↗
+                  </a>
+                </>
+              ) : (
+                <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#2A2C3E' }}>
-                    // no preview available
+                    {project.live ? '// preview bloqué par le site' : '// pas de démo disponible'}
                   </span>
-                )}
-              </div>
-            )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontFamily: 'monospace', fontSize: '10px', color: '#00D084', textDecoration: 'none' }}
+                    >
+                      voir le code ↗
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
 
             {/* Title */}
             <h2
