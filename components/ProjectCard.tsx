@@ -35,9 +35,9 @@ export default function ProjectCard({ project, index, onClick }: Props) {
     >
       {/* Terminal bar */}
       <div className="mb-6 flex items-center gap-1.5">
-        <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
-        <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
-        <span className="h-2 w-2 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+        <span className="h-2 w-2 rounded-full" style={{ background: '#FF5F57' }} />
+        <span className="h-2 w-2 rounded-full" style={{ background: '#FEBC2E' }} />
+        <span className="h-2 w-2 rounded-full" style={{ background: '#28C840' }} />
         <span className="ml-auto font-mono text-[10px]" style={{ color: '#2A2C3E' }}>
           #{num}
         </span>
