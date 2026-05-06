@@ -85,15 +85,17 @@ export default function ProjectModal({ project, onClose }: Props) {
               className="mb-6 rounded-lg p-4"
               style={{ background: '#161622', border: '1px solid rgba(255,255,255,0.06)' }}
             >
-              <div className="flex gap-1.5 mb-3">
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FF5F57' }} />
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FEBC2E' }} />
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#28C840' }} />
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[11px]">
+                  <span style={{ color: '#00D084' }}>~/projects/</span>
+                  <span style={{ color: '#E2E4EE' }}>{project.id}</span>
+                </p>
+                <div className="flex gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FF5F57' }} />
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#FEBC2E' }} />
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#28C840' }} />
+                </div>
               </div>
-              <p className="font-mono text-[11px]" style={{ color: '#2A2C3E' }}>
-                <span style={{ color: '#00D084' }}>~/projects/</span>
-                {project.id}
-              </p>
             </div>
 
             {/* Title */}
