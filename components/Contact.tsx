@@ -40,7 +40,7 @@ export default function Contact() {
               {'>'} Send me an email
             </a>
             <a
-              href="https://github.com/louisraillon"
+              href="https://www.malt.fr/profile/louisraillon"
               target="_blank"
               rel="noopener noreferrer"
               className="ghost-btn rounded font-mono text-sm transition-colors duration-150"
@@ -48,7 +48,7 @@ export default function Contact() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
             >
-              GitHub ↗
+              Malt ↗
             </a>
             <a
               href="https://linkedin.com/in/louisraillon"
