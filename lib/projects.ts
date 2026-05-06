@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: 'Scantrad Reader',
     type: 'Full-stack web app',
     description:
-      'Plateforme de lecture de mangas avec authentification, catalogue et lecteur page par page. Backend Express + SQLite, frontend HTML/CSS/JS vanilla.',
+      'Manga reading platform with authentication, catalogue and page-by-page reader. Express + SQLite backend, vanilla HTML/CSS/JS frontend.',
     stack: ['Node.js', 'Express', 'SQLite', 'HTML', 'CSS'],
     github: 'https://github.com/louisraillon/scantrad',
     live: 'https://scantrad.lmraillondev.com',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     title: 'Zenith Hanoi',
     type: 'Frontend',
     description:
-      'Site web pour Zenith Hanoi, studio de yoga et pilates fondé en 2007. Design épuré, présentation des cours, planning et contact.',
+      'Website for Zenith Hanoi, a yoga and pilates studio founded in 2007. Clean design, class listings, schedule and contact.',
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
     live: 'https://zenith1.lmraillondev.com',
     github: 'https://github.com/louisraillon/zenith-hanoi',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     title: 'Little Tam Coc',
     type: 'Frontend',
     description:
-      'Site web pour Little Tam Coc, une villa boutique située à Ninh Bình, Vietnam. Présentation des chambres, galerie photo et réservation.',
+      'Website for Little Tam Coc, a boutique villa in Ninh Binh, Vietnam. Room showcase, photo gallery and booking.',
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Query', 'Framer Motion'],
     live: 'https://littletamcoc.lmraillondev.com',
     github: 'https://github.com/louisraillon/little-tam-coc-resort-site',
