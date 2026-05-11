@@ -10,25 +10,25 @@ export default function Contact() {
       className="flex flex-col items-center px-6"
       style={{
         padding: '7rem 1.5rem',
-        backgroundColor: '#07100C',
-        borderTop: '1px solid rgba(0,208,132,0.08)',
+        backgroundColor: '#FFFFFF',
+        borderTop: '1px solid #E0E0D8',
       }}
     >
       <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>
 
         <Reveal>
-          <p className="mb-5 font-mono text-xs" style={{ color: '#1A5C3A', textAlign: 'center' }}>
+          <p className="mb-5 font-mono text-xs" style={{ color: '#9A9A8A', textAlign: 'center' }}>
             <Typewriter text="// contact" speed={55} />
           </p>
           <h2
             className="font-mono font-bold leading-[1] tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: '#E2E4EE', textAlign: 'center' }}
+            style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: '#111110', textAlign: 'center' }}
           >
             <Typewriter text="Get in touch." speed={60} delay={250} />
           </h2>
           <p
             className="font-mono text-sm leading-relaxed"
-            style={{ color: '#7A9E8A', maxWidth: '34rem', textAlign: 'center', margin: '2rem auto 2.5rem' }}
+            style={{ color: '#4A4A42', maxWidth: '34rem', textAlign: 'center', margin: '2rem auto 2.5rem' }}
           >
             Have a project in mind? Send me an email and I&apos;ll get back within 24 hours.
           </p>
@@ -41,11 +41,11 @@ export default function Contact() {
               marginBottom: '2.5rem',
               textAlign: 'center',
               fontSize: 'clamp(0.85rem, 2vw, 1.1rem)',
-              color: '#00D084',
+              color: '#00A86B',
               letterSpacing: '0.04em',
             }}
           >
-            <span style={{ color: '#1A5C3A' }}>{'→ '}</span>
+            <span style={{ color: '#9A9A8A' }}>{'→ '}</span>
             <Typewriter text="louisraillon1234@gmail.com" speed={28} />
           </div>
         </Reveal>
@@ -55,7 +55,7 @@ export default function Contact() {
             <a
               href="mailto:louisraillon1234@gmail.com"
               className="rounded font-mono text-sm font-bold transition-opacity hover:opacity-85 active:scale-[0.98]"
-              style={{ background: '#00D084', color: '#080810', padding: '0.75rem 1.75rem' }}
+              style={{ background: '#00A86B', color: '#FFFFFF', padding: '0.75rem 1.75rem' }}
             >
               {'>'} Send me an email
             </a>
@@ -64,9 +64,9 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="rounded font-mono text-sm transition-colors duration-150"
-              style={{ border: '1px solid rgba(0,208,132,0.25)', color: '#7A9E8A', padding: '0.75rem 1.5rem' }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#7A9E8A')}
+              style={{ border: '1px solid #D8D8D0', color: '#4A4A42', padding: '0.75rem 1.5rem' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#111110'; (e.currentTarget as HTMLElement).style.borderColor = '#111110' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#4A4A42'; (e.currentTarget as HTMLElement).style.borderColor = '#D8D8D0' }}
             >
               Malt ↗
             </a>
@@ -75,9 +75,9 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="rounded font-mono text-sm transition-colors duration-150"
-              style={{ border: '1px solid rgba(0,208,132,0.25)', color: '#7A9E8A', padding: '0.75rem 1.5rem' }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#7A9E8A')}
+              style={{ border: '1px solid #D8D8D0', color: '#4A4A42', padding: '0.75rem 1.5rem' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#111110'; (e.currentTarget as HTMLElement).style.borderColor = '#111110' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#4A4A42'; (e.currentTarget as HTMLElement).style.borderColor = '#D8D8D0' }}
             >
               LinkedIn ↗
             </a>
