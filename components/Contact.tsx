@@ -10,8 +10,8 @@ export default function Contact() {
       className="flex flex-col items-center px-6"
       style={{
         padding: '7rem 1.5rem',
-        backgroundColor: '#F5F4F2',
-        borderTop: '1px solid #D6D4D0',
+        backgroundColor: '#E8E8E8',
+        borderTop: '1px solid #D0D0D0',
       }}
     >
       <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>

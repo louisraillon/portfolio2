@@ -14,9 +14,9 @@ export default function About() {
       className="flex flex-col items-center"
       style={{
         padding: '7rem 1.5rem',
-        backgroundColor: '#EDECEA',
-        borderTop: '1px solid #D6D4D0',
-        borderBottom: '1px solid #D6D4D0',
+        backgroundColor: '#E8E8E8',
+        borderTop: '1px solid #D0D0D0',
+        borderBottom: '1px solid #D0D0D0',
       }}
     >
       <div style={{ width: '100%', maxWidth: '56rem' }}>
@@ -49,7 +49,7 @@ export default function About() {
                 { label: 'Location', value: 'Hanoi, Vietnam' },
                 { label: 'Status', value: 'Open to freelance' },
               ].map(({ label, value }) => (
-                <div key={label} style={{ borderTop: '1px solid #D6D4D0', paddingTop: '1.25rem' }}>
+                <div key={label} style={{ borderTop: '1px solid #D0D0D0', paddingTop: '1.25rem' }}>
                   <p className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7A7870' }}>{label}</p>
                   <p className="font-mono text-sm" style={{ color: '#1A1A18' }}>{value}</p>
                 </div>
@@ -68,8 +68,8 @@ export default function About() {
               gridTemplateColumns: 'repeat(3, 1fr)',
               borderRadius: '0.75rem',
               overflow: 'hidden',
-              background: '#F5F4F2',
-              border: '1px solid #D6D4D0',
+              background: '#EFEFEF',
+              border: '1px solid #D0D0D0',
               boxShadow: '0 2px 16px rgba(0,0,0,0.05)',
             }}
           >
@@ -78,7 +78,7 @@ export default function About() {
                 key={label}
                 style={{
                   padding: '2rem 1.5rem',
-                  borderLeft: i > 0 ? '1px solid #D6D4D0' : 'none',
+                  borderLeft: i > 0 ? '1px solid #D0D0D0' : 'none',
                   textAlign: 'center',
                 }}
               >
