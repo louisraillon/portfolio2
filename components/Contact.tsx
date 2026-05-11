@@ -8,12 +8,16 @@ export default function Contact() {
     <section
       id="contact"
       className="flex flex-col items-center px-6"
-      style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '7rem 1.5rem' }}
+      style={{
+        padding: '7rem 1.5rem',
+        backgroundColor: '#07100C',
+        borderTop: '1px solid rgba(0,208,132,0.08)',
+      }}
     >
       <div style={{ width: '100%', maxWidth: '56rem', textAlign: 'center' }}>
 
         <Reveal>
-          <p className="mb-5 font-mono text-xs" style={{ color: '#2A2C3E', textAlign: 'center' }}>
+          <p className="mb-5 font-mono text-xs" style={{ color: '#1A5C3A', textAlign: 'center' }}>
             <Typewriter text="// contact" speed={55} />
           </p>
           <h2
@@ -24,7 +28,7 @@ export default function Contact() {
           </h2>
           <p
             className="font-mono text-sm leading-relaxed"
-            style={{ color: '#565870', maxWidth: '34rem', textAlign: 'center', margin: '2rem auto 2.5rem' }}
+            style={{ color: '#7A9E8A', maxWidth: '34rem', textAlign: 'center', margin: '2rem auto 2.5rem' }}
           >
             Have a project in mind? Send me an email and I&apos;ll get back within 24 hours.
           </p>
@@ -41,7 +45,7 @@ export default function Contact() {
               letterSpacing: '0.04em',
             }}
           >
-            <span style={{ color: '#2A2C3E' }}>{'→ '}</span>
+            <span style={{ color: '#1A5C3A' }}>{'→ '}</span>
             <Typewriter text="louisraillon1234@gmail.com" speed={28} />
           </div>
         </Reveal>
@@ -59,10 +63,10 @@ export default function Contact() {
               href="https://www.malt.fr/profile/louisraillon"
               target="_blank"
               rel="noopener noreferrer"
-              className="ghost-btn rounded font-mono text-sm transition-colors duration-150"
-              style={{ border: '1px solid rgba(255,255,255,0.15)', color: '#565870', padding: '0.75rem 1.5rem' }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
+              className="rounded font-mono text-sm transition-colors duration-150"
+              style={{ border: '1px solid rgba(0,208,132,0.25)', color: '#7A9E8A', padding: '0.75rem 1.5rem' }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#7A9E8A')}
             >
               Malt ↗
             </a>
@@ -70,10 +74,10 @@ export default function Contact() {
               href="https://linkedin.com/in/louisraillon"
               target="_blank"
               rel="noopener noreferrer"
-              className="ghost-btn rounded font-mono text-sm transition-colors duration-150"
-              style={{ border: '1px solid rgba(255,255,255,0.15)', color: '#565870', padding: '0.75rem 1.5rem' }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#E2E4EE')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#565870')}
+              className="rounded font-mono text-sm transition-colors duration-150"
+              style={{ border: '1px solid rgba(0,208,132,0.25)', color: '#7A9E8A', padding: '0.75rem 1.5rem' }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#00D084')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#7A9E8A')}
             >
               LinkedIn ↗
             </a>

@@ -12,11 +12,16 @@ export default function About() {
     <section
       id="about"
       className="flex flex-col items-center"
-      style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '7rem 1.5rem' }}
+      style={{
+        padding: '7rem 1.5rem',
+        backgroundColor: '#0D0D1A',
+        borderTop: '1px solid rgba(255,255,255,0.08)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+      }}
     >
       <div style={{ width: '100%', maxWidth: '56rem' }}>
         <Reveal>
-          <p className="font-mono text-xs mb-4" style={{ color: '#2A2C3E' }}>// about_me</p>
+          <p className="font-mono text-xs mb-4" style={{ color: '#454766' }}>// about_me</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
 
@@ -28,10 +33,10 @@ export default function About() {
               >
                 <span style={{ color: '#00D084' }}>{'> '}</span>Who I am
               </h2>
-              <p className="font-mono text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9', marginBottom: '1.25rem' }}>
+              <p className="font-mono text-sm leading-relaxed" style={{ color: '#8B8EA8', lineHeight: '1.9', marginBottom: '1.25rem' }}>
                 I&apos;m a fullstack developer based in Hanoi, Vietnam. I design and ship complete products — from database schema to deployed UI.
               </p>
-              <p className="font-mono text-sm leading-relaxed" style={{ color: '#565870', lineHeight: '1.9' }}>
+              <p className="font-mono text-sm leading-relaxed" style={{ color: '#8B8EA8', lineHeight: '1.9' }}>
                 I work with startups and businesses that need things built right and fast. Currently open to freelance projects.
               </p>
             </div>
@@ -44,9 +49,9 @@ export default function About() {
                 { label: 'Location', value: 'Hanoi, Vietnam' },
                 { label: 'Status', value: 'Open to freelance' },
               ].map(({ label, value }) => (
-                <div key={label} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.25rem' }}>
-                  <p className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#2A2C3E' }}>{label}</p>
-                  <p className="font-mono text-sm" style={{ color: '#E2E4EE' }}>{value}</p>
+                <div key={label} style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.25rem' }}>
+                  <p className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#454766' }}>{label}</p>
+                  <p className="font-mono text-sm" style={{ color: '#C8CAD8' }}>{value}</p>
                 </div>
               ))}
             </div>
@@ -61,7 +66,11 @@ export default function About() {
               marginTop: '4rem',
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              borderTop: '1px solid rgba(255,255,255,0.06)',
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '0.75rem',
+              overflow: 'hidden',
+              background: 'rgba(0,208,132,0.03)',
+              border: '1px solid rgba(0,208,132,0.1)',
             }}
           >
             {STATS.map(({ to, suffix, label }, i) => (
@@ -69,7 +78,7 @@ export default function About() {
                 key={label}
                 style={{
                   padding: '2rem 1.5rem',
-                  borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderLeft: i > 0 ? '1px solid rgba(0,208,132,0.1)' : 'none',
                   textAlign: 'center',
                 }}
               >
@@ -79,7 +88,7 @@ export default function About() {
                 >
                   <Counter to={to} suffix={suffix} />
                 </p>
-                <p className="font-mono text-xs mt-2" style={{ color: '#565870' }}>{label}</p>
+                <p className="font-mono text-xs mt-2" style={{ color: '#8B8EA8' }}>{label}</p>
               </div>
             ))}
           </div>
