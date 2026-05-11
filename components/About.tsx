@@ -14,14 +14,14 @@ export default function About() {
       className="flex flex-col items-center"
       style={{
         padding: '7rem 1.5rem',
-        backgroundColor: '#F5F5F0',
-        borderTop: '1px solid #E0E0D8',
-        borderBottom: '1px solid #E0E0D8',
+        backgroundColor: '#EDECEA',
+        borderTop: '1px solid #D6D4D0',
+        borderBottom: '1px solid #D6D4D0',
       }}
     >
       <div style={{ width: '100%', maxWidth: '56rem' }}>
         <Reveal>
-          <p className="font-mono text-xs mb-4" style={{ color: '#9A9A8A' }}>// about_me</p>
+          <p className="font-mono text-xs mb-4" style={{ color: '#7A7870' }}>// about_me</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
 
@@ -29,14 +29,14 @@ export default function About() {
             <div>
               <h2
                 className="font-mono font-bold leading-tight"
-                style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#111110', marginBottom: '1.5rem' }}
+                style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#1A1A18', marginBottom: '1.5rem' }}
               >
                 <span style={{ color: '#00A86B' }}>{'> '}</span>Who I am
               </h2>
-              <p className="font-mono text-sm leading-relaxed" style={{ color: '#4A4A42', lineHeight: '1.9', marginBottom: '1.25rem' }}>
+              <p className="font-mono text-sm leading-relaxed" style={{ color: '#3E3D38', lineHeight: '1.9', marginBottom: '1.25rem' }}>
                 I&apos;m a fullstack developer based in Hanoi, Vietnam. I design and ship complete products — from database schema to deployed UI.
               </p>
-              <p className="font-mono text-sm leading-relaxed" style={{ color: '#4A4A42', lineHeight: '1.9' }}>
+              <p className="font-mono text-sm leading-relaxed" style={{ color: '#3E3D38', lineHeight: '1.9' }}>
                 I work with startups and businesses that need things built right and fast. Currently open to freelance projects.
               </p>
             </div>
@@ -49,9 +49,9 @@ export default function About() {
                 { label: 'Location', value: 'Hanoi, Vietnam' },
                 { label: 'Status', value: 'Open to freelance' },
               ].map(({ label, value }) => (
-                <div key={label} style={{ borderTop: '1px solid #D8D8D0', paddingTop: '1.25rem' }}>
-                  <p className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#9A9A8A' }}>{label}</p>
-                  <p className="font-mono text-sm" style={{ color: '#111110' }}>{value}</p>
+                <div key={label} style={{ borderTop: '1px solid #D6D4D0', paddingTop: '1.25rem' }}>
+                  <p className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7A7870' }}>{label}</p>
+                  <p className="font-mono text-sm" style={{ color: '#1A1A18' }}>{value}</p>
                 </div>
               ))}
             </div>
@@ -68,9 +68,9 @@ export default function About() {
               gridTemplateColumns: 'repeat(3, 1fr)',
               borderRadius: '0.75rem',
               overflow: 'hidden',
-              background: '#FFFFFF',
-              border: '1px solid #D8D8D0',
-              boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+              background: '#F5F4F2',
+              border: '1px solid #D6D4D0',
+              boxShadow: '0 2px 16px rgba(0,0,0,0.05)',
             }}
           >
             {STATS.map(({ to, suffix, label }, i) => (
@@ -78,7 +78,7 @@ export default function About() {
                 key={label}
                 style={{
                   padding: '2rem 1.5rem',
-                  borderLeft: i > 0 ? '1px solid #D8D8D0' : 'none',
+                  borderLeft: i > 0 ? '1px solid #D6D4D0' : 'none',
                   textAlign: 'center',
                 }}
               >
@@ -88,7 +88,7 @@ export default function About() {
                 >
                   <Counter to={to} suffix={suffix} />
                 </p>
-                <p className="font-mono text-xs mt-2" style={{ color: '#9A9A8A' }}>{label}</p>
+                <p className="font-mono text-xs mt-2" style={{ color: '#7A7870' }}>{label}</p>
               </div>
             ))}
           </div>
