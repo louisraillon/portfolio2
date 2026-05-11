@@ -10,7 +10,7 @@ export default function Contact() {
       className="flex flex-col items-center px-6"
       style={{
         padding: '7rem 1.5rem',
-        backgroundColor: '#E8E8E8',
+        backgroundColor: '#d9d7d7',
         borderTop: '1px solid #D0D0D0',
       }}
     >
